@@ -1,0 +1,356 @@
+#set($title = "新增产品系列")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/product.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+	<div class="main-header">
+		<div class="breadcrumb">
+			<a href="javascript:;"><i class="fa fa-th-large"></i>产品管理</a>
+			<i class="fa fa-caret-right"></i>
+			<a id="parentUrl" href="/product/list">系列列表</a>
+			<i class="fa fa-caret-right"></i>
+			<a href="javascript:;"><span class="js-title">新增</span>系列</a>
+		</div>
+	</div>
+
+	<div class="main-cnt ui-sale" id="app">
+		<h1><span class="js-title">新增</span>系列</h1>
+		<hr>
+
+		<div class=" container-group">
+			<div class="row row-wrap">
+				<div class="col-md-6">
+					<form id="productForm">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-plus"></i>
+		            </span>
+								<h3 class="panel-title"><span class="js-title">产品</span>系列</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-inline">
+									<div class="form-group noborder">
+										<label for="productName">产品系列名称:</label>
+										<input type="text" name="productGroupName" id="productGroupName" class="form-control"
+										       placeholder="请输入15字以内" maxlength="15" value="">
+
+									</div>
+								</div>
+								<div class="form-inline">
+									<div class="form-group noborder">
+										<label for="productCode">产品系列代码:</label>
+										<input type="text" name="productGroupId"  id="productGroupId" class="form-control"
+										       placeholder="请输入15字以内" maxlength="15" v-bind="productGroupName" value="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-cubes"></i>
+		            </span>
+								<h3 class="panel-title">贷款金额</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-inline">
+									<div class="form-group noborder">
+										<label>最低贷款金额:</label>
+										<input type="text" name="minLoanAmount" id="minLoanAmount"
+										       class="form-control js-integer-input" placeholder="请输入整数，小于20W">
+									</div>
+									<div class="form-group noborder">
+										<label>最高贷款金额:</label>
+										<input type="text" name="maxLoanAmount" id="maxLoanAmount"
+										       class="form-control js-integer-input" placeholder="需要大于最低贷款金额">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-tachometer"></i>
+		            </span>
+								<h3 class="panel-title">首付比例配置</h3>
+							</div>
+							<div class="panel-body">
+								<div class="row borderTop">
+									<table id="table1" class="table data-table">
+										<thead>
+										<th>起始商品金额</th>
+										<th>结束商品金额</th>
+										<th>最低首付比例</th>
+										<th>操作</th>
+										</thead>
+									</table>
+								</div>
+								<div class="row btn-row text-center">
+									<button name="button" class="btn btn-primary js-addRow-btn"><i
+											class="fa fa-plus"></i> 添加行
+									</button>
+								</div>
+								<div class="form-group">
+									<div class="controls" id="">
+										<label class=" jscheck">
+											<input name="subtractionMaxRule" type="checkbox" value="0"/>
+											<span class="warning-tips">使用商品减去最高贷款金额作为最低贷款金额</span>
+										</label>
+
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+								<p>温馨提示：</p>
+								<p>1、大于产品系列最高贷款金额的商品价格，最低首付金额 = 商品价格-最高贷款金额</p>
+								<p>2、最高首付金额=商品价格-最低贷款金额</p>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-user"></i>
+		            </span>
+								<h3 class="panel-title">可办角色配置</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls" id="rolesWrap">
+
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-product-hunt"></i>
+		            </span>
+								<h3 class="panel-title">产品系列标识</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls" id="productFlagWrap">
+										<label class=" jscheck">
+											<input name="promotionFlag" type="radio" value="0"/>
+											普通产品
+										</label>
+										<label class=" jscheck">
+											<input name="promotionFlag" type="radio" value="1"/>
+											促销产品
+										</label>
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-product-hunt"></i>
+		            </span>
+								<h3 class="panel-title">是否发送红包</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls" id="luckyMoneyWrap">
+										<label class=" jscheck">
+											<input name="redPacketFlag" type="radio" value="1"/>
+											发送微信红包
+										</label>
+										<label class=" jscheck">
+											<input name="redPacketFlag" type="radio" value="0"/>
+											不发送微信红包
+										</label>
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-th-list"></i>
+		            </span>
+								<h3 class="panel-title">白名单设置</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls">
+										<label class="jscheck">
+											<input name="whiteFlag" type="checkbox" value="0"/>
+											设置为白名单产品系列
+										</label>
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-check-square"></i>
+		            </span>
+								<h3 class="panel-title">商品类型绑定</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls" id="bindTypeWrap">
+
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default" style="display: none;">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-check-square"></i>
+		            </span>
+								<h3 class="panel-title">商品类型绑定(品牌)</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls" id="brandWrap">
+
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default" style="display: none;">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-check-square"></i>
+		            </span>
+								<h3 class="panel-title">商品类型绑定(型号)</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls" id="modelWrap">
+
+									</div>
+									<div class="col-xs-3 float">
+										<span class="msg-box n-right" for="method"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="footer text-center">
+							<p class="js-error-msg"></p>
+							<button type="button" name="button" class="btn btn-default js-cancel-btn"><i
+									class="fa fa-refresh"></i> 取消
+							</button>
+							<button type="submit" name="button" class="btn btn-info js-submit-btn"><i
+									class="fa fa-save"></i> 保存
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-6 ui-right">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+              <span class="icon">
+                <i class="fa fa-map-o"></i>
+              </span>
+							<h3 class="panel-title">已配置列表</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<dl class="">
+									<dt>产品系列名称:</dt>
+									<dd for="productGroupName" id="right-productGroupName"></dd>
+									<dt>产品系列代码:</dt>
+									<dd for="totalStock" id="right-productGroupId"></dd>
+									<dt>最低贷款金额:</dt>
+									<dd for="cityStock" id="right-minLoanAmount"></dd>
+									<dt>最高贷款金额:</dt>
+									<dd for="cityStock" id="right-maxLoanAmount"></dd>
+								</dl>
+							</div>
+
+							<div class="row borderTop">
+								<table id="table2" class="table data-table">
+									<thead>
+									<!--<th>是否激活</th>-->
+									<th>起始商品金额</th>
+									<th>结束商品金额</th>
+									<th>最低首付比例</th>
+									</thead>
+								</table>
+							</div>
+							<p>温馨提示：</p>
+							<p>1、大于产品系列最高贷款金额的商品价格，最低首付金额 = 商品价格-最高贷款金额</p>
+							<p>2、最高首付金额=商品价格-最低贷款金额</p>
+
+							<div class="row">
+								<dl class="">
+									<dt>可办理角色:</dt>
+									<dd for="" id="roleList"></dd>
+									<dt>产品系列标识:</dt>
+									<dd for="" id="productFlagList"></dd>
+									<dt>是否发送微信红包:</dt>
+									<dd for="" id="luckyMoneyList"></dd>
+									<dt>白名单设置:</dt>
+									<dd for="" id="isWhiteList"></dd>
+									<dt>商品类型绑定:</dt>
+									<dd for="" id="bindTypeList"></dd>
+									<!--<dt>商品类型绑定（品牌）:</dt>-->
+									<!--<dd for="" id="brandTypeList"></dd>-->
+									<!--<dt>商品类型绑定(型号):</dt>-->
+									<!--<dd for="" id="modelTypeList"></dd>-->
+								</dl>
+							</div>
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+#end
+#end
+<script type="text/javascript">
+	var _globalData = {
+		product: '$!productDto'//后台数据
+	};
+</script>
+<script src="/static/scripts/pages/product/add.js"></script>
+

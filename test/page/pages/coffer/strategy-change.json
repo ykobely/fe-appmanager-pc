@@ -1,0 +1,55 @@
+{
+    "channels":[
+        {"code":1,"name":"3C交叉现金贷"},
+        {"code":"701","name":"有钱用"}
+    ],
+    "strategyKeys":[
+        {"key":"OPEN-LIMIT-ONE","name":"3C交叉现金贷"},
+        {"name":2,"name":"有钱用"}
+    ],
+    "planTypes":[
+        {"key":"COUPONS","name":"3C交叉现金贷"},
+        {"key":2,"name":"有钱用"},
+        {"key":"LIST-POOL","name":"名单池"}
+    ],
+    "strategyDetail": {
+        "name": "1",
+        "channel": "701",
+        "key": "OPEN-LIMIT-ONE",
+        "priority": "1",
+        "comment": "",
+        "strategyReqs": [{
+            "status": "N",
+            "startDate": "99999999",
+            "endDate": "99999999",
+            "groupId": "0",
+            "id": "42",
+            "weight": "10",
+            "strategyPlanReqList": [{
+                "strategyId": "42",
+                "id": "155",
+                "type": "COUPONS",
+                "content": "",
+                "days": "2",
+                "time": "1026",
+                "status": "N"
+            }]
+        }, {
+            "status": "N",
+            "startDate": "20180316",
+            "endDate": "20180320",
+            "groupId": "1",
+            "id": "44",
+            "weight": "90",
+            "strategyPlanReqList": [{
+                "strategyId": "44",
+                "id": "157",
+                "type": "COUPONS",
+                "content": "",
+                "days": "1",
+                "time": "1855",
+                "status": "N"
+            }]
+        }]
+    }
+}

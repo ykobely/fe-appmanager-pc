@@ -1,0 +1,13 @@
+{
+	"ret":0,
+  "code":"0000",
+	"succ":true,
+  "resultMsg":"请求成功",
+	"resultCode":"0010",
+	"status":"success",
+	"msg":"成功",
+	"data":[{
+		"financeContentDetail":"备注内容备注内容备注内容备注内容备注内容备注内容备注内容",
+		"financeProveFile":"/merchant-pc/static/images/no-image1.jpg,/merchant-pc/static/images/no-image1.jpg"
+	}]
+}

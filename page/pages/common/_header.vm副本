@@ -1,0 +1,35 @@
+<div class="ui-header">
+    <h1><a href="/">有用分期</a></h1>
+</div>
+
+<nav class="navbar navbar-default header-navbar">
+    <div class="collapse navbar-collapse" >
+        <ul class="nav navbar-nav">
+            <li>
+                <a>
+                    <i class="fa fa-user"></i>
+                    <span>欢迎 $!username</span>
+                </a>
+            </li>
+            <li class="dropdown">
+            </li>
+            <li>
+                <a href="/user/logout.json">
+                    <i class="fa fa-sign-out"></i>
+                    <span>退出</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="top-nav">
+    <ul class="mainnav">
+        <li class="">
+            <a href="javascript:;" data-node="appConfig">
+                <i class="fa fa-cogs"></i>
+                <span>app配置后台</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,28 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": {
+        "list": [
+            {
+                "mediaId": "424984519407079424",
+                "title": "授信开关-京东",
+                "author": "huan.ye",
+                "updateTime": 1521020213000,
+                "createTime": 1521020213000
+            },
+            {
+                "mediaId": "201801121508001",
+                "title": "重复授信开关-京东",
+                "author": "ye",
+                "createTime": 1515482231000,
+                "updateTime": 1515482231000
+            }
+        ],
+        "pageIndex": 1,
+        "pageSize": 10,
+        "totalSize": 2,
+        "startRow": 0,
+        "endRow": 0
+    },
+    "succ": true
+}

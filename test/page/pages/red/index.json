@@ -1,0 +1,253 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": {
+        "list": [
+            {
+                "configId": "ac1c1c215c43c236015c441c050f016c",
+                "configName": "app_Config_Test2",
+                "configStatus": 1,
+                "configShowStatus": 1,
+                "configType": 2,
+                "configCodeList": [
+                    "110100",
+                    "120100"
+                ],
+                "startTime": 1485309600000,
+                "endTime": 1558749600000,
+                "redPacketSelfRuleList": [
+                    {
+                        "ruleId": "RI001",
+                        "ruleName": "单量规则包",
+                        "currentRuleType": 1,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    },
+                    {
+                        "ruleId": "RI002",
+                        "ruleName": "销售额红包1",
+                        "currentRuleType": 2,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    }
+                ],
+                "redPacketDzRuleList": [
+                    {
+                        "ruleId": "RI003",
+                        "ruleName": "激励红包",
+                        "currentRuleType": 3,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    },
+                    {
+                        "ruleId": "RI004",
+                        "ruleName": "销售额红包2",
+                        "currentRuleType": 2,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    }
+                ]
+            },
+            {
+                "configId": "2c9c97475c4361b9015c4361b94b0001",
+                "configName": "六一试点城市销量红包",
+                "configStatus": 1,
+                "configShowStatus": 1,
+                "configType": 3,
+                "configCodeList": [
+                    "610900",
+                    "410800",
+                    "430400",
+                    "532500"
+                ],
+                "startTime": 1495692614000,
+                "endTime": 1495869987000,
+                "redPacketSelfRuleList": [
+                    {
+                        "ruleId": "2c9c97475c427f7d015c427f7dd30001",
+                        "ruleName": "六一办单人单量红包",
+                        "currentRuleType": 1,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    }
+                ],
+                "redPacketDzRuleList": [
+                    {
+                        "ruleId": "2c9c97475c427f7d015c427f7dd30005",
+                        "ruleName": "六一店长销售额红包【替代普通红包】",
+                        "currentRuleType": 2,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    }
+                ]
+            },
+            {
+                "configId": "2c9c97475c4361b9015c4361b94b0002",
+                "configName": "六一试点城市销售额销量组合红包",
+                "configStatus": 2,
+                "configShowStatus": 3,
+                "configType": 3,
+                "configCodeList": [
+                    "500100",
+                    "140900",
+                    "510400",
+                    "431100"
+                ],
+                "startTime": 1495641600000,
+                "endTime": 1495900799000,
+                "redPacketSelfRuleList": [
+                    {
+                        "ruleId": "2c9c97475c427f7d015c427f7dd30002",
+                        "ruleName": "六一办单人销售额红包",
+                        "currentRuleType": 2,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    },
+                    {
+                        "ruleId": "2c9c97475c427f7d015c427f7dd30004",
+                        "ruleName": "六一办单人/店长销量激励红包",
+                        "currentRuleType": 3,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    }
+                ],
+                "redPacketDzRuleList": [
+                    {
+                        "ruleId": "2c9c97475c427f7d015c427f7dd30003",
+                        "ruleName": "六一店长销售额红包",
+                        "currentRuleType": 2,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    },
+                    {
+                        "ruleId": "2c9c97475c427f7d015c427f7dd30004",
+                        "ruleName": "六一办单人/店长销量激励红包",
+                        "currentRuleType": 3,
+                        "isActive": null,
+                        "ruleDetailId": null,
+                        "redPacketAmount": null,
+                        "contractAmountRate": null,
+                        "redPacketActName": null,
+                        "redPacketSendName": null,
+                        "redPacketRemark": null,
+                        "redPacketWishing": null,
+                        "dlDetailList": null,
+                        "xseDetailList": null,
+                        "jlDetailList": null
+                    }
+                ]
+            },
+            {
+                "configId": "CI0022",
+                "configName": "CN002",
+                "configStatus": 2,
+                "configShowStatus": 4,
+                "configType": 3,
+                "configCodeList": [],
+                "startTime": 1495635351000,
+                "endTime": 1495850303000,
+                "redPacketSelfRuleList": null,
+                "redPacketDzRuleList": null
+            },
+            {
+                "configId": "CI0011",
+                "configName": "CN001",
+                "configStatus": 2,
+                "configShowStatus": 4,
+                "configType": 3,
+                "configCodeList": [],
+                "startTime": 1495331898000,
+                "endTime": 1495763903000,
+                "redPacketSelfRuleList": null,
+                "redPacketDzRuleList": null
+            }
+        ],
+        "pageIndex": 1,
+        "pageSize": 10,
+        "totalSize": 5,
+        "startRow": 0,
+        "endRow": 0
+    },
+    "succ": true
+}

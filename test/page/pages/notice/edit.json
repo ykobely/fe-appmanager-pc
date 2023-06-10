@@ -1,0 +1,12 @@
+{
+	"startDate":"2016.2.12",
+	"endDate":"2016.12.12",
+	"initialcaption":"闪屏图片",
+	"initialPreview":[
+		"/appmanage-pc/static/images/no-img.png"
+	],
+	"initialPreviewConfig":[
+		{"caption": "图片1.jpg", "size": 930321, "width": "120px", "key": 1}
+	],
+    "type":4
+}

@@ -1,0 +1,28 @@
+## 404错误页面
+#set($title = '404')
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/error.css">
+#end
+
+#block('body')
+
+<div class="row">
+	<div class="container">
+		<h1 class="title">404</h1>
+		<p class="sub-heading">未找到对应页面</p>
+		<hr class="hr-style-404"/>
+		<p class="redirect-style-404">请求资源未找到，但将来可能被使用！</p>
+		<p class="redirect-style-404">
+			<a class="btn btn-warning" href="$!{base}">主 页</a>
+		</p>
+	</div>
+</div>
+<i class="top"></i>
+<i class="bottom"></i>
+
+#end
+#end

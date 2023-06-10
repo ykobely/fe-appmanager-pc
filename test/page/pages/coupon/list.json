@@ -1,0 +1,36 @@
+{
+  "code": "0000",
+  "msg": "成功",
+  "data": {
+    "list": [
+      {
+        "id":"0002",
+        "type":"D",
+        "typeDesc":"减免券",
+        "name":"飓风一号贷款",
+        "protossKey":"0",
+        "protossKeyDesc":"rate_discount_nper_end,从末期开始连续N期按比例免息",
+        "term":10,
+        "rate": 0.1,
+        "activeTime": "F",
+        "startDate": "2018-10-12",
+        "endDate": "2018-11-12",
+        "length": 0,
+        "sendCount": 100,
+        "useCount": 20,
+        "useAmount": 1000,
+        "description": "efafafef",
+        "comment": "lalal",
+        "status": "N",
+        "updateTime": "2018-10-12",
+        "operator":""
+      }
+    ],
+    "pageIndex": 1,
+    "pageSize": 10,
+    "totalSize": 1,
+    "startRow": 0,
+    "endRow": 10
+  },
+  "succ": true
+}

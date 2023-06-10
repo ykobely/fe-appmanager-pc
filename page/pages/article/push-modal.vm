@@ -1,0 +1,55 @@
+<!-- 导入名单 推送 -->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="uploadModalLabel">定向推送</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 MB10">
+                        <div class="form-inline">
+                            <label class="control-label col-md-3">文章名:</label>
+                            <span id="title"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 MB10">
+                        <div class="form-inline">
+                            <label class="control-label col-md-3">作者:</label>
+                            <span id="author"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 MB10">
+                        <div class="form-inline">
+                            <label class="control-label col-md-3">media_id:</label>
+                            <span id="mediaId"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 MB10">
+                        <div class="form-inline">
+                            <label class="control-label col-md-3">名单:</label>
+                            <div class="col-md-9">
+                                <input id="fileSelect" name="file" type="file"  class="file-loading js-file-upload" accept=".xlsx">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 MB10">
+                        <div class="form-inline">
+      		                <label for="remark" class="control-label col-md-3">备注:</label>
+      		                <div class="col-md-9">
+      		                    <textarea name="remark" rows="3" cols="50" maxlength="100" class="form-control" placeholder="最多可输入100字"></textarea>
+      		                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="hidden js-progress text-success">上传进度：<span class="per"></span></span>
+                <button type="button" class="btn btn-info js-submit-btn" data-loading-text="<i class='fa fa-spinner fa-spin '></i> 请稍等...">确认推送</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+#set($title = '更新安装包')
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/splash.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" >
+	<div class="main-header">
+	    <div class="breadcrumb">
+		    <a href="#"><i class="fa fa-th-large"></i>app配置后台</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a id="parentUrl" href="/appPackage/query.shtml">app安装包更新</a>
+		    <i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">更新</a>
+	    </div>
+	</div>
+	<div class="main-cnt">
+		<h1>更新</h1>
+	    <hr/>
+
+		<div class="panel">
+			<div class="panel-body">
+				<form id="installEditForm" class="form-horizontal" action="" method="post" autocomplete="off">
+					<div class="form-group">
+						<label for="appVersion" class="control-label col-xs-2">app版本号：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="appVersion" class="form-control w250" value="$!appPackage.appVersion" maxlength="50" readonly="true"/>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="appVersion"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="name" class="control-label col-xs-2">安装包名称：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="name" class="form-control w250" value="$!appPackage.name"/>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="name"></span>
+						</div>
+					</div>
+
+					<div class="form-group" id="contentInput">
+						<label for="content" class="control-label col-xs-2">更新内容：</label>
+						<div class="col-xs-9">
+							<textarea id="editor_id" name="content" style="width:100%;height:300px;">
+                            </textarea>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="content"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="channel" class="control-label col-xs-2 float checkbox-label">渠道：</label>
+						<div class=" col-xs-4 float">
+							<label class="checkbox-inline">
+                                <input id="android" type="radio" name="channel" value="0" checked="checked"> 安卓
+                                <span></span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input id="ios" type="radio" name="channel" value="1"> ios
+                                <span></span>
+                            </label>
+						</div>
+						<div class="col-xs-3 float">
+							<span class="msg-box n-right" for="channel"></span>
+						</div>
+					</div>
+
+				    <div id="hiddenContent"  style="display:none;">
+				    	$!appPackage.content
+					</div>
+
+					<div class="form-group">
+						<label for="force" class="control-label col-xs-2 float checkbox-label">是否强制更新：</label>
+						<div class=" col-xs-4 float">
+							<label class="checkbox-inline">
+                                <input id="force" type="radio" name="force" value="Y" disabled="true"> 是
+                                <span></span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input id="nonForce" type="radio" name="force" value="N" disabled="true"> 否
+                                <span></span>
+                            </label>
+						</div>
+						<div class="col-xs-3 float">
+							<span class="msg-box n-right" for="force"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="system" class="control-label col-xs-2 float checkbox-label">所属系统:</label>
+						<div class=" col-xs-4 float">
+							<label class="checkbox-inline">
+                                <input id="wuyou" type="radio" name="system" value="0" checked="checked"> 有用无忧app
+                                <span></span>
+                            </label>
+							<label class="checkbox-inline">
+                                <input id="wuyou" type="radio" name="system" value="1" checked="checked"> 销售易
+                                <span></span>
+                            </label>
+						</div>
+						<div class="col-xs-3 float">
+							<span class="msg-box n-right" for="force"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="download" class="control-label col-xs-2">原安装包下载地址：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="download" class="form-control w750" value="$!appPackage.url" disabled="true"/>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="download"></span>
+						</div>
+					</div>
+
+					<div class="form-group" id="package" style="display:none;">
+						<label for="file" class="control-label col-xs-2 float">上传安装包：</label>
+						<div class="col-xs-7 float">
+							<input id="file" name="file" type="file" class="file-loading jsfile" >
+						</div>
+						<div class="col-xs-2 float">
+							<span class="msg-box n-right js-file-error" for="file"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<button type="button" class="btn btn-default js-cancle">取消</button>
+						<button type="button" class="btn btn-primary js-save">保存</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+    </div>
+</div>
+
+
+#end
+#end
+
+<script type="text/javascript">
+
+	var _globalData = {
+		channel: '$!appPackage.channel',
+		isForce: '$!appPackage.isForce',
+		system: '$!appPackage.system',
+		status: '$!appPackage.status',
+		url: '$!appPackage.url',
+		id: '$!appPackage.id',
+		initialPreview:null,
+		initialPreviewConfig:null,
+		initialCaption:'',
+	};
+
+</script>
+<script type="text/javascript" src="http://s1.yyfq.com/backstage/static/scripts/kindeditor/kindeditor-all.js"></script>
+<script type="text/javascript" src="/static/scripts/pages/install/edit.js"></script>

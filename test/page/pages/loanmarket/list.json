@@ -1,0 +1,49 @@
+{
+  "code": "0000",
+  "msg": "成功",
+  "data": {
+    "list": [
+      {
+        "id":2,
+        "logo":"/appmanager-pc/static/images/logo2.png",
+        "title":"飓风一号贷款",
+        "usableAmount":"1-100万",
+        "loanBrand":"啦啦啦",
+        "initApplies":0,
+        "initAppliesTime":null,
+        "sort":10,
+        "special":true,
+        "requireToken":false,
+        "status":true,
+        "url":"http://url",
+        "operator":"",
+        "badge":0,
+        "updateTime":null,
+        "createTime":null
+      },
+      {
+        "id":1,
+        "logo":"",
+        "title":"更多贷款 一键申请",
+        "usableAmount":null,
+        "loanBrand":null,
+        "initApplies":0,
+        "initAppliesTime":null,
+        "sort":-1,
+        "special":true,
+        "requireToken":false,
+        "status":true,
+        "url":"",
+        "operator":"",
+        "updateTime":null,
+        "createTime":null
+      }
+    ],
+    "pageIndex": 1,
+    "pageSize": 10,
+    "totalSize": 2,
+    "startRow": 0,
+    "endRow": 10
+  },
+  "succ": true
+}

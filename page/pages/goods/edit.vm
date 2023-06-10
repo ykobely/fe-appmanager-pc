@@ -1,0 +1,152 @@
+#set($title = "编辑商品")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/product.scss">
+
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+	<div class="main-header">
+		<div class="breadcrumb">
+			<a href="javascript:;"><i class="fa fa-th-large"></i>商品管理</a>
+			<i class="fa fa-caret-right"></i>
+			<a id="parentUrl" href="/goods/list">商品列表</a>
+		</div>
+	</div>
+
+	<div class="main-cnt ui-sale" id="app">
+		<h1><span class="js-title">编辑</span>商品</h1>
+		<hr>
+
+		<div class=" container-group">
+			<div class="row row-wrap">
+				<div class="col-md-6 ui-left">
+					<form id="goodsForm">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-plus"></i>
+		            </span>
+								<h3 class="panel-title"><span class="js-title">商品</span>类型</h3>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<dl>
+										<dt>商品类型名字：</dt>
+										<dd id="goodsName"></dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-cubes"></i>
+		            </span>
+								<h3 class="panel-title">品牌</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="controls" id="brand-list">
+
+										<div class="add-form">
+											<input type="text" id="brand-text" placeholder="输入类目名字"
+											       class="form-control">
+											<span class="btn btn-info" id="brand-add">+新增</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-cubes"></i>
+		            </span>
+								<h3 class="panel-title">品牌型号绑定</h3>
+							</div>
+							<div class="panel-body">
+								<h5>查询列表</h5>
+								<div class="row borderTop">
+									<table id="table1" class="table data-table">
+										<thead>
+										<th>品牌</th>
+										<th>型号</th>
+										<th>操作</th>
+										</thead>
+									</table>
+								</div>
+								<div class="row btn-row text-center">
+									<button type="button" name="button" class="btn btn-primary js-addRow-btn"><i
+											class="fa fa-plus"></i> 添加行
+									</button>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="footer text-center">
+							<p class="js-error-msg"></p>
+							<button type="button" name="button" class="btn btn-default js-cancel-btn"><i
+									class="fa fa-refresh"></i> 取消
+							</button>
+							<button type="submit" name="button" class="btn btn-info js-submit-btn"><i
+									class="fa fa-save"></i> 保存
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-6 ui-right">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+              <span class="icon">
+                <i class="fa fa-map-o"></i>
+              </span>
+							<h3 class="panel-title">已配置列表</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<dl class="">
+									<dt>商品类型名字:</dt>
+									<dd for="productGroupName" id="right-goodsName"></dd>
+								</dl>
+							</div>
+							<h5>已绑定品牌型号</h5>
+							<div class="row borderTop">
+								<table id="table3" class="table data-table">
+									<thead>
+									<th>品牌</th>
+									<th>型号</th>
+									</thead>
+								</table>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+#end
+#end
+<script type="text/javascript">
+	var _globalData = {
+		goods: '$!goods' //后台数据
+
+	};
+</script>
+<script src="/static/scripts/libs/vue.min.js"></script>
+<script src="/static/scripts/pages/goods/edit.js"></script>
+

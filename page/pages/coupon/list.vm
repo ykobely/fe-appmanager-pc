@@ -1,0 +1,64 @@
+#set($title = "优惠券列表")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+    <link rel="stylesheet" type="text/css" href="/static/styles/pages/coupon.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+   <div class="main-header">
+        <div class="breadcrumb">
+            <a href="javascript:;"><i class="fa fa-th-large"></i>优惠券管理</a>
+            <i class="fa fa-caret-right"></i>
+            <a href="javascript:;">$!{title}</a>
+        </div>
+    </div>
+
+    <div class="main-cnt">
+        <h1>$!{title}</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">       
+                <div class="pull-left">
+                    <a href="javascript:;" class="btn btn-primary js-add-btn">创建</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body nopadding">
+                <table id="table" class="table data-table nowrap">
+                    <thead>
+                        <th>优惠券Id</th>
+                        <th>类型</th>
+                        <th>名称</th>
+                        <th>KEY</th>
+                        <th>减免期数</th>
+                        <th>减免力度</th>
+                        <th>有效时间</th>
+                        <th>发放量</th>
+                        <th>使用量</th>
+                        <th>说明</th>
+                        <th>备注</th>
+                        <th>状态</th>
+                        <th>操作时间</th>
+                        <th>操作</th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+#parse('/page/pages/coupon/create-modal.vm')
+#parse('/page/pages/coupon/provide-modal.vm')
+
+#end
+#end
+
+<script src="/static/scripts/pages/coupon/list.js"></script>

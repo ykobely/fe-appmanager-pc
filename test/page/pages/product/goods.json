@@ -1,0 +1,38 @@
+{
+	"goods": {
+		"goodsBrandDtoList": [
+			{
+				"goodsModelDtoList": [],
+				"brandName": "bicycle_brand1",
+				"createTime": 1497523109000,
+				"brandId": 326430552583913472,
+				"active": false,
+				"updateTime": 1497523109000,
+				"id": 18,
+				"operator": "tree",
+				"goodsType": 22,
+				"status": 0
+			},
+			{
+				"goodsModelDtoList": [],
+				"brandName": "bicycle_brand2",
+				"createTime": 1497523109000,
+				"brandId": 326430552583913473,
+				"active": false,
+				"updateTime": 1497523109000,
+				"id": 19,
+				"operator": "tree",
+				"goodsType": 22,
+				"status": 0
+			}
+		],
+		"active": true,
+		"updateTime": 1497540972000,
+		"operator": "tree",
+		"goodsType": 22,
+		"createTime": 1497540972000,
+		"id": 30,
+		"goodsName": "自行车",
+		"status": 0
+	}
+}

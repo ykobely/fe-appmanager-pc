@@ -1,0 +1,36 @@
+{
+    "msg": "成功",
+    "code": "0000",
+    "redPacketConfig": {
+        "configName": "CN002",
+        "redPacketDzRuleList": [
+            {
+                "ruleName": "单量规则包",
+                "currentRuleType": 3,
+                "ruleId": "RI001"
+            }
+        ],
+        "configShowStatus": 3,
+        "configCodeList": [
+            "610900"
+        ],
+        "configId": "CI002",
+        "startTime": "",
+        "configStatus": 2,
+        "endTime": "",
+        "configType": 3,
+        "redPacketSelfRuleList": [
+            {
+                "ruleName": "销售额红包",
+                "currentRuleType": 2,
+                "ruleId": "RI002"
+            },
+            {
+                "ruleName": "激励红包",
+                "currentRuleType": 3,
+                "ruleId": "RI003"
+            }
+        ]
+    },
+    "succ": true
+}

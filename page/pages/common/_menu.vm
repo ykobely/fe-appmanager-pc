@@ -1,0 +1,69 @@
+<div class="ui-sidebar">
+    <ul class="nav " id="menuList">
+      #foreach( $item in $!menus)
+  		 	<li class="js-submenu">
+          #if($!item.nextLevel == 1)
+          <a href="javascript:;" class="menu">
+        		<i class="$!item.menuIcon"></i>
+        		<span>$!item.menuName</span>
+      		</a>
+          <ul>
+            #foreach($sub in $item.subPageMenus)
+            <li>
+              #if($!sub.nextLevel == 1)
+              <a href="javascript:;" class="submenu">
+            		<i class="$!sub.menuIcon"></i>
+            		<span>$!sub.menuName</span>
+          		</a>
+              <ul class="last-node">
+                #foreach($child in $sub.subPageMenus)
+                  <li><a class="leaf" href="$!child.menuUrl">$!child.menuName</a></li>
+                #end
+              </ul>
+              #else
+              <a href="$!sub.menuUrl">$!sub.menuName</a>
+              #end
+            </li>
+            #end
+          </ul>
+          #else
+          <a href="$!item.menuUrl" class="menu">
+        		<i class="$!item.menuIcon"></i>
+        		<span>$!item.menuName</span>
+      		</a>
+          #end
+    		</li>
+	    #end
+
+        <!-- <li class="js-submenu">
+            <a>
+                <i class="fa fa-smile-o"></i>
+                <span>app配置管理</span>
+            </a>
+            <ul>
+                <li><a href="/splashscreen/query.shtml">闪屏列表</a></li>
+                <li><a href="/affiche/query.shtml">app公告</a></li>
+                <li><a href="/parameter/query.shtml">app配置文件更新</a></li>
+                <li><a href="/appPackage/query.shtml">app安装包更新</a></li>
+            </ul>
+        </li>
+        <li class="js-submenu">
+            <a>
+                <i class="fa fa-cart-plus"></i>
+                <span>促销管理</span>
+            </a>
+            <ul>
+                <li><a href="/page/pages/sale/list.vm">活动列表</a></li>
+            </ul>
+        </li>
+        <li class="js-submenu">
+            <a>
+                <i class="fa fa-users"></i>
+                <span>权限管理</span>
+            </a>
+            <ul>
+                <li><a href="/page/pages/systems/users.vm">账号列表</a></li>
+            </ul>
+        </li> -->
+    </ul>
+</div>

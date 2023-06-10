@@ -1,0 +1,94 @@
+#set($title = "imei修改")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/sale.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+  <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>合同管理</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">imei修改</a>
+		</div>
+	</div>
+
+  <div class="main-cnt">
+    <h1>imei修改</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline pull-left" id="searchForm">
+          <div class="form-group noborder">
+            <label for="title">合同号:</label>
+            <input type="text" name="contractNo" class="form-control">
+          </div>
+          <button type="button" class="btn btn-primary js-search-btn">查询</button>
+        </form>
+      </div>
+    </div>
+
+		<div class="panel panel-default">
+			<div class="panel-body nopadding">
+				<table id="table" class="table data-table nowrap">
+					<thead>
+						<th>合同号</th>
+						<th>姓名</th>
+						<th>身份证</th>
+						<th class="js-imei-th">imei码</th>
+						<th>操作</th>
+					</thead>
+				</table>
+			</div>
+		</div>
+
+  </div>
+
+</div>
+
+
+<!-- Modal弹窗 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"  aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  	<div class="modal-dialog" role="document">
+   	 	<div class="modal-content">
+      		<form id="editModalForm" >
+            <input type="hidden" name="orderId" >
+						<input type="hidden" name="key"  >
+      			<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			        <h4 class="modal-title" id="editModalLabel">编辑</h4>
+			    </div>
+		      	<div class="modal-body">
+			        <div class="panel-body">
+                <div class="row MB10" >
+      						<div class="form-inline ">
+      							<div class="col-md-11 col-sm-offset-1 ">
+      								<label class="control-label" for="code"></label>
+      								<input name="code" class="form-control" maxlength="200" >
+      							</div>
+      						</div>
+      					</div>
+		      	</div>
+	      		<div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+			        <button type="submit" class="btn btn-primary">确定</button>
+			    </div>
+      		</form>
+    	</div>
+  	</div>
+</div>
+
+
+#end
+#end
+
+<script src="/static/scripts/pages/order/imei.js"></script>

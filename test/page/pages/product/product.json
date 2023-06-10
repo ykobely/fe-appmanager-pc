@@ -1,0 +1,150 @@
+{
+	"code": "0000",
+	"msg": "成功",
+	"data": {
+		"list": [
+			{
+				"id": 7,
+				"productGroupId": "TREE",
+				"productGroupName": "TREE-测试",
+				"productType": 0,
+				"minLoanAmount": 300.00,
+				"status": 0,
+				"promotionFlag": 0,
+				"whiteFlag": 0,
+				"redPacketFlag": 0,
+				"operator": "tree",
+				"createTime": 1497540970000,
+				"updateTime": 1497546792000,
+				"productRoleDtoList": [
+					{
+						"id": 8,
+						"productRole": 1,
+						"productRoleName": "学生",
+						"status": 1,
+						"operator": null,
+						"createTime": null,
+						"updateTime": null,
+						"productGroupId": null,
+						"active": true
+					},
+					{
+						"id": 19,
+						"productRole": 2,
+						"productRoleName": "工薪",
+						"status": 0,
+						"operator": null,
+						"createTime": null,
+						"updateTime": null,
+						"productGroupId": null,
+						"active": true
+					},
+					{
+						"id": 18,
+						"productRole": 1,
+						"productRoleName": "学生",
+						"status": 0,
+						"operator": null,
+						"createTime": null,
+						"updateTime": null,
+						"productGroupId": null,
+						"active": true
+					},
+					{
+						"id": 9,
+						"productRole": 3,
+						"productRoleName": "老板",
+						"status": 1,
+						"operator": null,
+						"createTime": null,
+						"updateTime": null,
+						"productGroupId": null,
+						"active": true
+					}
+				],
+				"downPaymentDtoList": [
+					{
+						"id": null,
+						"startAmount": 11.00,
+						"endAmount": 2001.00,
+						"lowDownPaymentRatio": 21.00,
+						"status": 9,
+						"createTime": null,
+						"updateTime": null,
+						"operator": "tree",
+						"productGroupId": null,
+						"active": true
+					},
+					{
+						"id": null,
+						"startAmount": 10.00,
+						"endAmount": 2000.00,
+						"lowDownPaymentRatio": 20.00,
+						"status": 9,
+						"createTime": null,
+						"updateTime": null,
+						"operator": "tree",
+						"productGroupId": null,
+						"active": true
+					}
+				],
+				"goodsDtoList": [
+					{
+						"id": null,
+						"goodsType": 10,
+						"goodsName": "手机",
+						"operator": null,
+						"status": 0,
+						"createTime": null,
+						"updateTime": null,
+						"productGroupId": null,
+						"productGroupIdStr": null,
+						"productGroupNameStr": null,
+						"goodsBrandDtoList": null,
+						"productDtoList": null,
+						"active": true
+					},
+					{
+						"id": null,
+						"goodsType": 20,
+						"goodsName": "摩托车",
+						"operator": null,
+						"status": 1,
+						"createTime": null,
+						"updateTime": null,
+						"productGroupId": null,
+						"productGroupIdStr": null,
+						"productGroupNameStr": null,
+						"goodsBrandDtoList": null,
+						"productDtoList": null,
+						"active": true
+					},
+					{
+						"id": null,
+						"goodsType": 22,
+						"goodsName": "自行车",
+						"operator": null,
+						"status": 0,
+						"createTime": null,
+						"updateTime": null,
+						"productGroupId": null,
+						"productGroupIdStr": null,
+						"productGroupNameStr": null,
+						"goodsBrandDtoList": null,
+						"productDtoList": null,
+						"active": true
+					}
+				],
+				"productModelSKUDtoList": null,
+				"roleNameStr": "学生,工薪,学生,老板",
+				"goodsNameStr": "手机,摩托车,自行车"
+			}
+		],
+		"pageIndex": 0,
+		"pageSize": 10,
+		"totalSize": 0,
+		"startRow": 0,
+		"endRow": 10
+	},
+	"succ": true
+}

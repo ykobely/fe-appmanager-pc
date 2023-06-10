@@ -1,0 +1,43 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": {
+        "list": [{
+            "id": "341220774181175296",
+            "channel": 1,
+            "name": "testName",
+            "adress": "testAdress",
+            "system": 0,
+            "operator": "testOperator",
+            "weight": 0,
+            "createTime": 1501049372000,
+            "updateTime": 1501049372000
+        }, {
+            "id": "341612193647525888",
+            "channel": 1,
+            "name": "testName",
+            "adress": "testAdress",
+            "system": 0,
+            "operator": "testOperator",
+            "weight": 0,
+            "createTime": 1501142693000,
+            "updateTime": 1501142693000
+        }, {
+            "id": "341216009615409152",
+            "channel": 0,
+            "name": "updateName",
+            "adress": "updateAdress",
+            "system": 0,
+            "operator": "updateOperator",
+            "weight": 0,
+            "createTime": 1501048236000,
+            "updateTime": 1501049647000
+        }],
+        "pageIndex": 1,
+        "pageSize": 10,
+        "totalSize": 3,
+        "startRow": 0,
+        "endRow": 10
+    },
+    "succ": true
+}

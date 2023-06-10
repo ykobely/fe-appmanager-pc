@@ -1,0 +1,60 @@
+#set($title = "商品列表")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/article.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+  <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>业务渠道</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">现金贷</a>
+		</div>
+	</div>
+
+  <div class="main-cnt">
+    <h1>现金贷业务渠道</h1>
+    <hr>
+
+    <div class="row toolbar">
+		<div class="col-xs-12 ">
+			<div class="pull-left">
+				<button type="button" class="btn btn-info js-add-btn">新建</button>
+			</div>
+		</div>
+	</div>
+
+    <div class="panel panel-default">
+        <div class="panel-body nopadding">
+            <table id="table" class="table data-table nowrap">
+                <thead>
+                    <th>序号</th>
+                    <th>业务线</th>
+                    <th>spuCode</th>
+                    <th>spuName</th>
+                    <th>营销计划code</th>
+                    <th>合同类型</th>
+                    <th>描述</th>
+                    <th>支付商户号</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+  </div>
+
+</div>
+
+#parse('/page/pages/channel/cash-add-modal.vm')
+
+#end
+#end
+
+<script src="/static/scripts/pages/channel/cash.js"></script>

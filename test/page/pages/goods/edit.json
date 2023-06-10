@@ -1,0 +1,21 @@
+{
+	"goods": {
+		"goodsBrandDtoList": [
+			{
+				"brandName": "test",
+				"brandId": "500",
+				"active": false,
+				"id": 3733,
+				"goodsType": 40,
+				"status": 0
+			}
+		],
+		"productGroupId": "ZIP",
+		"active": true,
+		"updateTime": 1499838521000,
+		"goodsType": 40,
+		"id": 2283,
+		"goodsName": "TEST",
+		"status": 0
+	}
+}

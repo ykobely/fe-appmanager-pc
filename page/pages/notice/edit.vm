@@ -1,0 +1,147 @@
+#set($title = '编辑公告')
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/splash.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" >
+	<div class="main-header">
+	    <div class="breadcrumb">
+		    <a href="/index.shtml"><i class="fa fa-th-large"></i>app配置后台</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a id="parentUrl" href="/affiche/query.shtml">app公告后台</a>
+		    <i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">编辑</a>
+	    </div>
+	</div>
+	<div class="main-cnt">
+		<h1>编辑</h1>
+	    <hr/>
+
+		<div class="panel">
+			<div class="panel-body">
+				<form id="noticeEditForm" class="form-horizontal" action="" method="post" autocomplete="off">
+
+					<div class="form-group" id="titleInput">
+						<label for="title" class="control-label col-xs-2">公告主题：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="title" class="form-control w250" value="$!affiche.title" maxlength="50"/>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="title"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="system" class="control-label col-xs-2">所属系统：</label>
+						<div class="col-xs-5">
+							<select class="selectpicker" name="system">
+								<option value="">请选择</option>
+								<option value="0">有用无忧app</option>
+								<option value="1">销售易</option>
+							</select>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="system"></span>
+						</div>
+					</div>
+
+					<div class="form-group" id="titleInput">
+						<label for="method" class="control-label col-xs-2 float checkbox-label">公告方式：</label>
+						<div class=" col-xs-8 float js-type-group">
+							<label class="checkbox-inline jscheck"><input id="applist" name="radios" type="radio" value="0" checked="checked"/> app列表</label>
+							<label class="checkbox-inline jscheck"><input id="apppush" name="radios" type="radio" value="2" /> app推送</label>
+							<label class="checkbox-inline jscheck"><input id="bannercheck" name="radios" type="radio" value="1" /> 公告页banner</label>
+							<label class="checkbox-inline jscheck"><input id="h5link" name="radios" type="radio" value="3" /> h5页面链接</label>
+							<label class="checkbox-inline jscheck"><input id="h5link" name="radios" type="radio" value="4" /> 页面tips</label>
+						</div>
+						<div class="col-xs-3 float">
+							<span class="msg-box n-right" for="method"></span>
+						</div>
+					</div>
+
+					<div class="form-group" id="bannerImage" style="display:none;">
+						<label for="banner" class="control-label col-xs-2 float">banner图：</label>
+						<div class="col-xs-5 float">
+							<input id="banner" name="banner" type="file" class="file-loading jsfile" accept="image/*">
+						</div>
+						<div class="col-xs-2 float">
+							<span class="msg-box n-right js-file-error" for="banner"></span>
+						</div>
+					</div>
+
+					<div class="form-group" id="weightInput">
+						<label for="per" class="control-label col-xs-2">公告权重：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="per" class="form-control w250" onkeyup="value=value.replace(/[^0-9\.]/g,'');" placeholder="当前最高权重为66" value="$!affiche.weight" />
+							<!-- <span class="help-block">当前最高权重为66</span> -->
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="per"></span>
+						</div>
+					</div>
+
+					<div class="form-group" id="contentInput">
+						<label for="daterange" class="control-label col-xs-2">公告内容：</label>
+						<div class="col-xs-9">
+							<textarea id="editor_id" name="content" style="width:100%;height:300px;" maxlength="60000">
+                            </textarea>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="daterange"></span>
+						</div>
+					</div>
+
+					<div id="hiddenContent" style="display:none;">
+					$!affiche.content
+					</div>
+
+					<div class="form-group" id="linkInput" style="display:none;">
+						<label for="link" class="control-label col-xs-2">h5链接：</label>
+						<div class=" col-xs-5">
+							<input type="text" id="link" name="link" class="form-control w250" maxlength="500"/>
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="link"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<button type="button" class="btn btn-primary js-save">保存</button>
+						<button type="button" class="btn btn-default js-cancle">取消</button>
+						<button type="button" class="btn btn-primary js-save-public">保存并发布</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+    </div>
+</div>
+
+
+#end
+#end
+
+<script type="text/javascript">
+
+	var _globalData = {
+		id:'$!affiche.id',
+		createTime: '$!affiche.createTime',
+		operator: '$!affiche.operator',
+		type: '$!affiche.type',
+		system:'$!affiche.system',
+		hiddenContent:hiddenContent,
+		bannerImagePath: '$!affiche.bannerImagePath',
+		initialPreview:'$!affiche.bannerImagePath',
+		initialPreviewConfig:'$!initialPreviewConfig',
+		initialCaption:'$!initialCaption'
+	};
+</script>
+
+<script type="text/javascript" src="http://s1.yyfq.com/backstage/static/scripts/kindeditor/kindeditor-all.js"></script>
+<script type="text/javascript" src="/static/scripts/pages/notice/edit.js"></script>

@@ -1,0 +1,21 @@
+{
+  "code": "0000",
+  "msg": "成功",
+  "data": {
+    "list": [
+      {
+        "id": 3,
+        "accountName": "dehe.he",
+        "fullName": "何德和",
+        "password": null,
+        "createTime": 1491901549000
+      }
+    ],
+    "pageIndex": 1,
+    "pageSize": 10,
+    "totalSize": 1,
+    "startRow": 0,
+    "endRow": 10
+  },
+  "succ": true
+}

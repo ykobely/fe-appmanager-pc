@@ -1,0 +1,141 @@
+[
+    {
+        "createTime": 1495553501000,
+        "downPaymentDtoList": [],
+        "goodsDtoList": [
+            {
+                "active": false,
+                "goodsName": "平板",
+                "goodsType": 11,
+                "status": 0
+            },
+            {
+                "active": false,
+                "goodsName": "手机",
+                "goodsType": 10,
+                "status": 0
+            }
+        ],
+        "goodsNameStr": "平板,手机",
+        "id": 2,
+        "minLoanAmount": 200.00,
+        "operator": "",
+        "productGroupId": "PAD",
+        "productGroupName": "平板-有一说一",
+        "productRoleDtoList": [],
+        "productType": 0,
+        "promotionFlag": 0,
+        "redPacketFlag": 0,
+        "status": 0,
+        "updateTime": 1495553501000,
+        "whiteFlag": 0
+    },
+    {
+        "createTime": 1495553501000,
+        "downPaymentDtoList": [],
+        "goodsDtoList": [
+            {
+                "active": false,
+                "goodsName": "电脑",
+                "goodsType": 12,
+                "status": 0
+            },
+            {
+                "active": false,
+                "goodsName": "平板",
+                "goodsType": 11,
+                "status": 0
+            }
+        ],
+        "goodsNameStr": "电脑,平板",
+        "id": 3,
+        "minLoanAmount": 3000.00,
+        "operator": "",
+        "productGroupId": "COM",
+        "productGroupName": "电脑-有一说一",
+        "productRoleDtoList": [
+            {
+                "active": false,
+                "id": 5,
+                "productRole": 1,
+                "productRoleName": "学生",
+                "status": 0
+            },
+            {
+                "active": false,
+                "id": 4,
+                "productRole": 4,
+                "productRoleName": "农民",
+                "status": 0
+            }
+        ],
+        "productType": 0,
+        "promotionFlag": 0,
+        "redPacketFlag": 0,
+        "roleNameStr": "学生,农民",
+        "status": 0,
+        "updateTime": 1495553501000,
+        "whiteFlag": 0
+    },
+    {
+        "createTime": 1495553501000,
+        "downPaymentDtoList": [
+            {
+                "endAmount": 2000.00,
+                "lowDownPaymentRatio": 10.00,
+                "startAmount": 101.00,
+                "status": 0
+            }
+        ],
+        "goodsDtoList": [
+            {
+                "active": false,
+                "goodsName": "电脑",
+                "goodsType": 12,
+                "status": 0
+            },
+            {
+                "active": false,
+                "goodsName": "平板",
+                "goodsType": 11,
+                "status": 0
+            }
+        ],
+        "goodsNameStr": "电脑,平板",
+        "id": 1,
+        "minLoanAmount": 100.00,
+        "operator": "",
+        "productGroupId": "MBT",
+        "productGroupName": "手机-有一说一",
+        "productRoleDtoList": [
+            {
+                "active": false,
+                "id": 3,
+                "productRole": 3,
+                "productRoleName": "老板",
+                "status": 0
+            },
+            {
+                "active": false,
+                "id": 2,
+                "productRole": 2,
+                "productRoleName": "工薪",
+                "status": 0
+            },
+            {
+                "active": false,
+                "id": 1,
+                "productRole": 1,
+                "productRoleName": "学生",
+                "status": 0
+            }
+        ],
+        "productType": 0,
+        "promotionFlag": 0,
+        "redPacketFlag": 0,
+        "roleNameStr": "老板,工薪,学生",
+        "status": 0,
+        "updateTime": 1495553501000,
+        "whiteFlag": 0
+    }
+]

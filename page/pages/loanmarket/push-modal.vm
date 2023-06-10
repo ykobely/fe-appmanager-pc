@@ -1,0 +1,108 @@
+<!-- 新增、编辑 -->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <form role="form" id="loanMarket">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="uploadModalLabel">编辑</h4>
+                </div>
+                <div class="modal-body">               
+                    <div class="row">
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">名称:</label>
+                                <input type="text" name="loanBrand" class="form-control" id="loanBrand" placeholder="输入名称">
+                            </div>
+                        </div>                    
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">logo:</label>
+                                <div class="dis-inline">
+                                    <input type="file" id="fileSelect" name="file" class="file-loading js-file-upload" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">初始申请人数:</label>
+                                <input type="text" name="initApplies" class="form-control" id="initApplies" placeholder="输入申请人数">
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">介绍语:</label>
+                                <input type="text" name="title" class="form-control" id="title" placeholder="输入10个字以内的介绍语">
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">权重:</label>
+                                <input type="text" name="sort" class="form-control" id="sort" placeholder="输入0-999之间数字">
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">跳转地址:</label>
+                                <input type="text" name="url" class="form-control" id="toUrl" placeholder="输入图片跳转地址">
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">金额范围:</label>
+                                <input type="text" name="usableAmount" class="form-control" id="usableAmount" placeholder="输入金额范围">
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">是否标签展示:</label>
+                                <select id="badge" class="form-control" name="badge">
+                                    <option value="0">请选择</option>
+                                    <option value="1">热门</option>
+                                    <option value="2">急速</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">是否列表展示:</label>
+                                <div class="dis-inline">                                
+                                    <label class="mr-10">
+                                        <input type="radio" checked value="true" name="special">
+                                        <span>是</span>
+                                    </label>                               
+                                    <label>
+                                        <input type="radio" value="false" name="special">
+                                        <span>否</span>
+                                    </label>                              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-3">是否需要令牌:</label>
+                                <div class="dis-inline">                                
+                                    <label class="mr-10">
+                                        <input type="radio" checked value="true" name="requireToken">
+                                        <span>是</span>
+                                    </label>                               
+                                    <label>
+                                        <input type="radio" value="false" name="requireToken">
+                                        <span>否</span>
+                                    </label>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>               
+                </div>
+                <div class="modal-footer">
+                    <span class="hidden js-progress text-success">上传进度：<span class="per"></span></span>
+                    <button type="button" class="btn btn-default js-cancel-btn">取消</button>
+                    <button type="submit" class="btn btn-info js-submit-btn">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

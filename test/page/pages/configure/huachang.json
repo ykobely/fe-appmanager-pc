@@ -1,0 +1,25 @@
+{
+  "code": "0000",
+  "msg": "成功",
+  "data": {
+    "list": [{
+      "id": "424984519407079424",
+      "operator": "huan.ye",
+      "system": "",
+      "totalCount": 100,
+      "usedCount": 20,
+      "bizChannel": 1,
+      "bizChannelName": "泛人群大额",
+      "creditType": 1,
+      "creditTypeName": "",
+      "createTime": 1521020213000,
+      "updateTime": 1521020213000
+    }],
+    "pageIndex": 1,
+    "pageSize": 10,
+    "totalSize": 2,
+    "startRow": 0,
+    "endRow": 0
+  },
+  "succ": true
+}

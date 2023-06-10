@@ -1,0 +1,126 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": [{
+        "menuId": 24,
+        "menuLevel": 1,
+        "menuName": "促销活动",
+        "menuIcon": "fa fa-cart-plus",
+        "menuUrl": null,
+        "nextLevel": 1,
+        "subPageMenus": [{
+            "menuId": 25,
+            "menuLevel": 2,
+            "menuName": "活动列表",
+            "menuIcon": null,
+            "menuUrl": "/activity/query",
+            "nextLevel": 0,
+            "subPageMenus": null
+        }]
+    }, {
+        "menuId": 26,
+        "menuLevel": 1,
+        "menuName": "商品管理",
+        "menuIcon": "fa fa-download",
+        "menuUrl": null,
+        "nextLevel": 1,
+        "subPageMenus": [{
+            "menuId": 266,
+            "menuLevel": 2,
+            "menuName": "二级菜单",
+            "menuIcon": null,
+            "menuUrl": "/activity/quer1y",
+            "nextLevel": 1,
+            "subPageMenus": [{
+                "menuId": 267,
+                "menuLevel": 2,
+                "menuName": "三级菜单",
+                "menuIcon": null,
+                "menuUrl": "/activity/query2",
+                "nextLevel": 0,
+                "subPageMenus": null
+            }]
+        },{
+            "menuId": 2661,
+            "menuLevel": 2,
+            "menuName": "二级菜单1",
+            "menuIcon": null,
+            "menuUrl": "/activity/quer1y",
+            "nextLevel": 1,
+            "subPageMenus": [{
+                "menuId": 2671,
+                "menuLevel": 2,
+                "menuName": "三级菜单1",
+                "menuIcon": null,
+                "menuUrl": "/activity/query2",
+                "nextLevel": 0,
+                "subPageMenus": null
+            }]
+        },{
+            "menuId": 26612,
+            "menuLevel": 2,
+            "menuName": "二级菜单2",
+            "menuIcon": null,
+            "menuUrl": "/activity/quer1y",
+            "nextLevel": 1,
+            "subPageMenus": null
+        }]
+    }, {
+        "menuId": 27,
+        "menuLevel": 1,
+        "menuName": "权限管理",
+        "menuIcon": "fa fa-users",
+        "menuUrl": "/permission/index",
+        "nextLevel": 0,
+        "subPageMenus": null
+    }, {
+        "menuId": 28,
+        "menuLevel": 1,
+        "menuName": "app闪屏",
+        "menuIcon": "fa fa-bolt",
+        "menuUrl": null,
+        "nextLevel": 1,
+        "subPageMenus": [{
+            "menuId": 29,
+            "menuLevel": 2,
+            "menuName": "闪屏列表",
+            "menuIcon": null,
+            "menuUrl": "/splashscreen/query.shtml",
+            "nextLevel": 0,
+            "subPageMenus": null
+        }]
+    }, {
+        "menuId": 30,
+        "menuLevel": 1,
+        "menuName": "app公告后台",
+        "menuIcon": "fa fa-bullhorn",
+        "menuUrl": null,
+        "nextLevel": 1,
+        "subPageMenus": [{
+            "menuId": 31,
+            "menuLevel": 2,
+            "menuName": "公告列表",
+            "menuIcon": null,
+            "menuUrl": "/affiche/query.shtml",
+            "nextLevel": 0,
+            "subPageMenus": null
+        }]
+    }, {
+        "menuId": 32,
+        "menuLevel": 1,
+        "menuName": "app配置文件更新",
+        "menuIcon": "fa fa-file-code-o",
+        "menuUrl": "/parameter/query.shtml",
+        "nextLevel": 0,
+        "subPageMenus": null
+    }, {
+        "menuId": 33,
+        "menuLevel": 1,
+        "menuName": "app安装包更新",
+        "menuIcon": "fa fa-file-code-o",
+        "menuUrl": "/appPackage/query.shtml",
+        "nextLevel": 0,
+        "subPageMenus": null
+    }],
+    "succ": true
+}

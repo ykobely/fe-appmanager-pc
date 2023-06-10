@@ -1,0 +1,373 @@
+#set($title = "新增规则包")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/sale.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+  <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>红包管理</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a id="parentUrl" href="/redPackage/rule/list">红包规则包列表</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;"><span class="js-title">新增</span>规则包</a>
+		</div>
+	</div>
+
+  <div class="main-cnt ui-sale">
+    <h1><span class="js-title">新增</span>规则包</h1>
+    <hr>
+
+	  <div class=" container-group">
+      <div class="row row-wrap">
+        <div class="col-md-6">
+					<form id="ruleForm" >
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-plus"></i>
+		            </span>
+		            <h3 class="panel-title">规则包信息</h3>
+		          </div>
+		    			<div class="panel-body">
+		    				<div class="form-inline">
+		              <div class="form-group noborder">
+		                <label for="activityName">规则包名称:</label>
+		                <input type="text" name="ruleName" class="form-control" placeholder="请输入中文，不超过20字" maxlength="20" value="$!rule.ruleName">
+		              </div>
+		    				</div>
+		    			</div>
+		    		</div>
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-cubes"></i>
+		            </span>
+		            <h3 class="panel-title">规则类型</h3>
+		          </div>
+		    			<div class="panel-body">
+		    				<div class="form-inline">
+		              <div class="radio">
+		                <label for="">
+		                  <input type="radio" name="currentRuleType" value="1" class="js-currentRuleType-select"> 单量规则
+		                </label>
+		              </div>
+                  <div class="radio ML10">
+		                <label for="">
+		                  <input type="radio" name="currentRuleType" value="2" class="js-currentRuleType-select"> 销售额规则
+		                </label>
+		              </div>
+                  <div class="radio ML10">
+		                <label for="">
+		                  <input type="radio" name="currentRuleType" value="3" class="js-currentRuleType-select"> 激励红包
+		                </label>
+		              </div>
+		    				</div>
+		    			</div>
+		    		</div>
+						<div class="panel panel-default js-currentRuleType-wrap hidden">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-wrench"></i>
+		            </span>
+		            <h3 class="panel-title">单量规则配置</h3>
+		          </div>
+		    			<div class="panel-body">
+								<div class="row ">
+									<ul class="nav nav-tabs">
+									  <li class="active"><a data-toggle="tab" href="#content1">普通</a></li>
+									  <li><a data-toggle="tab" href="#content2">促销</a></li>
+									</ul>
+									<div class="tab-content">
+									  <div id="content1" class="tab-pane fade in active">
+											<div class="MB10">
+												<button type="button" name="button" class="btn btn-primary js-add-ordinary-btn" data-table="table_1_normal" data-type="1">添加</button>
+											</div>
+											<table id="table_1_normal" class="table data-table border">
+			        					<thead>
+			        						<th><input type="checkbox" value="1" class="js-checkbox-all"></th>
+			        						<th>起始</th>
+													<th>截止</th>
+													<th>红包名</th>
+													<th>发送人</th>
+													<th>祝福语</th>
+													<th>红包描述</th>
+													<th>金额</th>
+			        						<th>操作</th>
+			        					</thead>
+			        				</table>
+									  </div>
+									  <div id="content2" class="tab-pane fade">
+											<div class="MB10">
+												<button type="button" name="button" class="btn btn-primary js-add-ordinary-btn" data-table="table_1_sale" data-type="1">添加</button>
+											</div>
+											<table id="table_1_sale" class="table data-table border">
+			        					<thead>
+			        						<th><input type="checkbox" value="1" class="js-checkbox-all"></th>
+			        						<th>起始</th>
+													<th>截止</th>
+													<th>红包名</th>
+													<th>发送人</th>
+													<th>祝福语</th>
+													<th>红包描述</th>
+			        						<th>金额</th>
+			        						<th>操作</th>
+			        					</thead>
+			        				</table>
+									  </div>
+									</div>
+								</div>
+		    			</div>
+		    		</div>
+						<div class="panel panel-default js-currentRuleType-wrap hidden">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-wrench"></i>
+		            </span>
+		            <h3 class="panel-title">销售额规则</h3>
+		          </div>
+		    			<div class="panel-body">
+								<div class="row ">
+									<div class="MB10 ML10">
+										<button type="button" name="button" class="btn btn-primary js-add-ordinary-btn" data-table="table_2" data-type="2">添加</button>
+									</div>
+									<div class="borderTop">
+		                <table id="table_2" class="table data-table">
+		        					<thead>
+		        						<th>
+		        							<!-- <input type="checkbox" value="1" class="js-checkbox-all"> -->
+		        						</th>
+		        						<th>产品类型</th>
+												<th>红包名</th>
+												<th>发送人</th>
+												<th>祝福语</th>
+												<th>红包描述</th>
+												<th>红包比例</th>
+		        						<th>操作</th>
+		        					</thead>
+		        				</table>
+		              </div>
+								</div>
+		    			</div>
+		    		</div>
+						<div class="panel panel-default js-currentRuleType-wrap hidden">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-wrench"></i>
+		            </span>
+		            <h3 class="panel-title">激励红包规则配置</h3>
+		          </div>
+		    			<div class="panel-body">
+								<div class="row ">
+									<ul class="nav nav-tabs">
+									  <li class="active"><a data-toggle="tab" href="#content4">普通</a></li>
+									  <li><a data-toggle="tab" href="#content5">促销</a></li>
+									</ul>
+									<div class="tab-content">
+									  <div id="content4" class="tab-pane fade in active">
+											<div class="MB10">
+												<button type="button" name="button" class="btn btn-primary js-add-ordinary-btn" data-table="table_3_normal" data-type="1">添加</button>
+											</div>
+											<table id="table_3_normal" class="table data-table border">
+			        					<thead>
+			        						<th><input type="checkbox" value="1" class="js-checkbox-all"></th>
+			        						<th>起始</th>
+													<th>截止</th>
+													<th>红包名</th>
+													<th>发送人</th>
+													<th>祝福语</th>
+													<th>红包描述</th>
+													<th>金额</th>
+			        						<th>操作</th>
+			        					</thead>
+			        				</table>
+									  </div>
+									  <div id="content5" class="tab-pane fade">
+											<div class="MB10">
+												<button type="button" name="button" class="btn btn-primary js-add-ordinary-btn" data-table="table_3_sale" data-type="1">添加</button>
+											</div>
+											<table id="table_3_sale" class="table data-table border">
+			        					<thead>
+			        						<th><input type="checkbox" value="1" class="js-checkbox-all"></th>
+			        						<th>起始</th>
+													<th>截止</th>
+													<th>红包名</th>
+													<th>发送人</th>
+													<th>祝福语</th>
+													<th>红包描述</th>
+			        						<th>金额</th>
+			        						<th>操作</th>
+			        					</thead>
+			        				</table>
+									  </div>
+									</div>
+								</div>
+		    			</div>
+		    		</div>
+
+						<!-- 表单验证需要的字段名 -->
+						<input type="hidden" name="dlDetailList">
+						<input type="hidden" name="xseDetailList">
+						<input type="hidden" name="jlDetailList">
+
+						<div class="footer text-center">
+							<p class="js-error-msg"></p>
+							<button type="button" name="button" class="btn btn-default js-reset-btn"><i class="fa fa-refresh"></i> 重置</button>
+							<button type="submit" name="button" class="btn btn-info js-submit-btn"><i class="fa fa-save"></i> 保存</button>
+						</div>
+					</form>
+   	   </div>
+
+        <div class="col-md-6 ui-right">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span class="icon">
+                <i class="fa fa-map-o"></i>
+              </span>
+              <h3 class="panel-title">已配置列表</h3>
+            </div>
+      			<div class="panel-body">
+              <div class="row">
+                <dl class="">
+                  <dt>规则包名称:</dt>
+                  <dd for="ruleName">$!rule.ruleName</dd>
+                  <dt>规则类型:</dt>
+                  <dd for="radioText"></dd>
+                </dl>
+              </div>
+
+							<div class="tab-base row js-selected-rules-wrap hidden" data-rule="2">
+								<ul class="nav nav-tabs">
+									<li class="active">
+										<a data-toggle="tab" href="#0">配置列表</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="#0" class="tab-pane active">
+										<div class=" ">
+											<table id="rightXseTable" class="table data-table border">
+												<thead>
+													<th>类型</th>
+													<th>红包名</th>
+													<th>发送人</th>
+													<th>祝福语</th>
+													<th>红包比例</th>
+												</thead>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row js-selected-rules-wrap hidden" data-rule="1">
+								<ul class="nav nav-tabs">
+									<li class="active"><a data-toggle="tab" href="#right1">普通</a></li>
+									<li><a data-toggle="tab" href="#right2">促销</a></li>
+								</ul>
+								<div class="tab-content">
+									<div id="right1" class="tab-pane fade in active">
+										<div class=" ">
+											<table id="rightNormalTable" class="table data-table border">
+												<thead>
+													<th>起始</th>
+													<th>截止</th>
+													<th>红包名</th>
+													<th>发送人</th>
+													<th>祝福语</th>
+													<th>红包描述</th>
+			        						<th>金额</th>
+												</thead>
+											</table>
+										</div>
+									</div>
+									<div id="right2" class="tab-pane fade ">
+										<div class=" ">
+											<table id="rightSaleTable" class="table data-table border">
+												<thead>
+													<th>起始</th>
+													<th>截止</th>
+													<th>红包名</th>
+													<th>发送人</th>
+													<th>祝福语</th>
+													<th>红包描述</th>
+			        						<th>金额</th>
+												</thead>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+      			</div>
+      		</div>
+        </div>
+  	  </div>
+	  </div>
+
+  </div>
+
+</div>
+
+
+#parse('/page/pages/red/rule-modal.vm')
+
+<script type="text/html" id="redRule">
+	<div class="form-inline">
+		<div class="form-group noborder">
+			 <label>&#12288;&#12288;&#12288;&#12288;&#12288;&#160;</label>
+			 <select class="selectpicker" name="" data-live-search="true">
+				 <option value="">请选择红包规则</option>
+			 </select>
+			 <button type="button" name="button" class="btn btn-info js-plus-btn"><i class="fa fa-plus"></i></button>
+ 			<button type="button" name="button" class="btn btn-warning js-minus-btn"><i class="fa fa-minus"></i></button>
+		</div>
+	</div>
+</script>
+
+#end
+#end
+
+
+
+<script type="text/javascript">
+	<!-- 单量规则列表 -->
+	var dlDetailList = [
+		#foreach($item in $!rule.dlDetailList)
+			#if($foreach.index >  0),#end
+			{lowLimit:'$!item.lowLimit',upperLimit:'$!item.upperLimit',actName:'$!item.actName',remark:'$!item.remark',redPacketAmount:'$!item.redPacketAmount',productType:'$!item.productType',sendName:'$!item.sendName',wishing:'$!item.wishing',contractAmountRate:'$!item.contractAmountRate',detailId:'$!item.detailId'}
+		#end
+	];
+
+	<!-- 销售额规则列表 -->
+	var xseDetailList = [
+		#foreach($item in $!rule.xseDetailList)
+			#if($foreach.index >  0),#end
+			{lowLimit:'$!item.lowLimit',upperLimit:'$!item.upperLimit',actName:'$!item.actName',remark:'$!item.remark',redPacketAmount:'$!item.redPacketAmount',productType:'$!item.productType',sendName:'$!item.sendName',wishing:'$!item.wishing',contractAmountRate:'$!item.contractAmountRate',detailId:'$!item.detailId'}
+		#end
+	];
+
+	<!-- 激励红包规则列表 -->
+	var jlDetailList = [
+		#foreach($item in $!rule.jlDetailList)
+			#if($foreach.index >  0),#end
+			{lowLimit:'$!item.lowLimit',upperLimit:'$!item.upperLimit',actName:'$!item.actName',remark:'$!item.remark',redPacketAmount:'$!item.redPacketAmount',productType:'$!item.productType',sendName:'$!item.sendName',wishing:'$!item.wishing',contractAmountRate:'$!item.contractAmountRate',detailId:'$!item.detailId'}
+		#end
+	];
+
+	var _globalData = {
+		currentRuleType:'$!rule.currentRuleType',
+		dlDetailList:dlDetailList,
+		xseDetailList:xseDetailList,
+		jlDetailList:jlDetailList
+	};
+</script>
+<script src="/static/scripts/pages/red/rule-detail.js"></script>

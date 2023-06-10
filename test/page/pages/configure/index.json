@@ -1,0 +1,40 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": {
+        "list": [
+            {
+                "id": "424984519407079424",
+                "num": 1,
+                "paramKey": "credit_auth_jingdong",
+                "value": "{\"name\":\"京东授权\",\"seq\":\"D\", \"order\":8, \"is_used\":1, \"can_recredit\":1}",
+                "name": "授信开关-京东",
+                "type": 1,
+                "version": 4,
+                "system": 0,
+                "operator": "huan.ye",
+                "createTime": 1521020213000,
+                "updateTime": 1521020213000
+            },
+            {
+                "id": "201801121508001",
+                "num": 2,
+                "paramKey": "re_credit_auth_jingdong",
+                "value": "OFF",
+                "name": "重复授信开关-京东",
+                "type": 1,
+                "version": 1,
+                "system": 0,
+                "operator": "ye",
+                "createTime": 1515482231000,
+                "updateTime": 1515482231000
+            }
+        ],
+        "pageIndex": 1,
+        "pageSize": 10,
+        "totalSize": 2,
+        "startRow": 0,
+        "endRow": 0
+    },
+    "succ": true
+}

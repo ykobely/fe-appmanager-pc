@@ -1,0 +1,342 @@
+#set($title = "新增/编辑策略组")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/strategy.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" data-toggle="" data-target="">
+	<div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>小金库</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a id="parentUrl" href="/market/strategy/index">策略组</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;" class="js-title">$!{title}</a>
+		</div>
+	</div>
+
+	<div class="main-cnt">
+		<h1>
+			<span class="js-title">$!{title}</span>
+			<div class="link pull-right">
+				#if($!{strategyDetail.strategyReqs.size()}>1)
+				<a href="javascript:;" class="js-out-ab">退出A/Btest模式</a>
+				#else
+                <a href="javascript:;" class="js-in-ab">进入A/Btest模式</a>
+				#end
+            </div>
+		</h1>
+
+		<form id="strategyForm" action="index.html" method="post">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span class="icon">
+					  <i class="fa fa-arrows-alt"></i>
+					</span>
+					<h3 class="panel-title ">
+						策略组
+					</h3>
+				</div>
+	        	<div class="panel-body nopadding">
+					<div class="form-group row noborder">
+					    <label for="name" class="col-sm-2 form-label text-right">策略组</label>
+					    <div class="col-sm-6">
+					      <input type="text" class="form-control" name="name" placeholder="给策略组起个名字" maxlength="10" value="$!{strategyDetail.name}">
+					    </div>
+					 </div>
+					 <div class="form-group row noborder">
+					    <label for="channel" class="col-sm-2 form-label text-right">业务线</label>
+					    <div class="col-sm-6">
+					      <select class="selectpicker" name="channel" data-value="$!{strategyDetail.channel}">
+	        					<option value="">请选择</option>
+								#foreach($item in $channels)
+  	  							  	<option value="$!item.code">$!item.name</option>
+  	  						  	#end
+	                        </select>
+					    </div>
+					 </div>
+					 <div class="form-group row noborder">
+					    <label for="key" class="col-sm-2 form-label text-right">人群标签集</label>
+					    <div class="col-sm-6">
+							<select class="selectpicker" name="key" data-value="$!{strategyDetail.key}">
+	  						  <option value="">请选择</option>
+	  						  #foreach($item in $strategyKeys)
+	  							  <option value="$!item.key">$!item.name</option>
+	  						  #end
+	  					  </select>
+					    </div>
+					 </div>
+					 <div class="form-group row noborder">
+					   <label for="priority" class="col-sm-2 form-label text-right">优先级</label>
+					   <div class="col-sm-6">
+						 <input type="number" class="form-control" name="priority" placeholder="范围1-100" min="1" max="100" step="1" value="$!{strategyDetail.priority}">
+					   </div>
+					</div>
+				</div>
+			</div>
+
+		    <div class="panel panel-default" id="tableList">
+				<div class="panel-heading">
+					<span class="icon">
+					  <i class="fa fa-bars"></i>
+					</span>
+					<h3 class="panel-title ">
+						<span id="abTitle" data-title1="对应策略列表" data-title2="A/Btest" >
+							#if($!{strategyDetail.strategyReqs.size()}>1) A/Btest
+							#else 对应策略列表
+							#end
+						</span>
+						<a href="javascript:;" class="link pull-right" id="showHistotyBtn">页面历史</a>
+					</h3>
+				</div>
+				#if($!{strategyDetail.channel})
+					#foreach($item in $strategyDetail.strategyReqs)
+						<div class="panel-body">
+							<div class="form-inline">
+								<div class="form-group noborder js-group-order ui-table-order">
+									#if($!{item.groupId} == 0) 默认组
+									#else
+										<a href="javascript:;" class="js-remove-table">
+											<i class="fa fa-remove"></i>
+										</a>
+										策略 <span class="js-group-number">$!{item.groupId}</span> 组
+									#end
+								</div>
+								<div class="form-group noborder">
+									<label for="status">状态:</label>
+									<select class="selectpicker" name="status" data-value="$!{item.status}">
+										<option value="">请选择</option>
+										<option value="N">正常</option>
+										<option value="C">失效</option>
+									</select>
+								</div>
+								<div class="form-group noborder">
+									<label for="startDate">有效期:</label>
+									<input name="startDate" class="form-control js-date datetimepicker" placeholder="开始时间" readonly  value="$!{item.startDate}"  /> - <input name="endDate" class="form-control js-date datetimepicker" readonly placeholder="截止时间" value="$!{item.endDate}" /> &nbsp;
+									<input type="checkbox" class="js-long-term" name="groupId"> 长期
+								</div>
+								<div class="form-group noborder js-weight-group">
+									<label for="weight">比例:</label>
+									<input name="weight" class="form-control" placeholder="比例"  value="$!{item.weight}" /> %
+								</div>
+							</div>
+							<table id="table$!{velocityCount}" class="table data-table table-border" data-id="$!{item.id}" data-groupId="$!{item.groupId}">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>计划类型</th>
+										<th>内容</th>
+										<th>T+?</th>
+										<th>时间点</th>
+										<th>状态</th>
+										<th>更新时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#foreach($row in $item.strategyPlanReqList)
+										<tr>
+											<td>
+												$!{velocityCount}
+												<input type="hidden" class="strategyId" value="$!{row.strategyId}"/>
+												<input type="hidden" class="id" value="$!{row.id}"/>
+											</td>
+											<td>
+												<select class="selectpicker planTypes type" data-value="$!{row.type}">
+													<option value="">请选择</option>
+													#foreach($item in $planTypes)
+														<option value="$!item.key">$!item.name</option>
+													#end
+												</select>
+											</td>
+											<td>
+												<input class="form-control content" value="$!{row.content}" />
+											</td>
+											<td>
+												<input class="form-control days" value="$!{row.days}" />
+											</td>
+											<td>
+												<input type="text" class="form-control timepicker time" value="$!{row.time}" readonly />
+											</td>
+											<td>
+												<select class="selectpicker status" data-value="$!{row.status}">
+													<option value="">请选择</option>
+													<option value="N">有效</option>
+													<option value="C">失效</option>
+												</select>
+											</td>
+											<td>
+												$!date.format('yyyy-MM-dd HH:mm:ss ',$!{row.updateTime})
+											</td>
+											<td>
+												<a href="javascript:;" class="js-remove-table-row">删除</a>
+											</td>
+										</tr>
+									#end
+								</tbody>
+							</table>
+							<div class="row MT10">
+								<div class="col-md-12">
+									<button type="button" class="btn btn-default js-add-table-row"><i class="fa fa-plus"></i> 添加行</button>
+								</div>
+							</div>
+						</div>
+					#end
+				#else
+					<div class="panel-body ">
+						<div class="form-inline">
+							<div class="form-group noborder js-group-order ui-table-order">
+								默认组
+							</div>
+							<div class="form-group noborder">
+								<label for="status">状态1:</label>
+								<select class="selectpicker" name="status" data-value="$!{item.status}">
+									<option value="">请选择</option>
+									<option value="N">正常</option>
+									<option value="C">失效</option>
+								</select>
+							</div>
+							<div class="form-group noborder">
+								<label for="startDate">有效期:</label>
+								<input name="startDate" class="form-control js-date datetimepicker" placeholder="开始时间" readonly  value="$!{item.startDate}" /> - <input name="endDate" class="form-control js-date datetimepicker" readonly placeholder="截止时间" value="$!{item.endDate}" /> &nbsp;
+								<input type="checkbox" class="js-long-term" name="groupId"> 长期
+							</div>
+							<div class="form-group noborder js-weight-group">
+								<label for="weight">比例:</label>
+								<input name="weight" class="form-control" placeholder="比例"  value="$!{item.weight}" /> %
+							</div>
+						</div>
+						<table id="table1" class="table data-table table-border" data-id="" data-groupId="0">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>计划类型</th>
+									<th>内容</th>
+									<th>T+?</th>
+									<th>时间点</th>
+									<th>状态</th>
+									<th>更新时间</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+						</table>
+						<div class="row MT10">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-default js-add-table-row"><i class="fa fa-plus"></i> 添加行</button>
+							</div>
+						</div>
+					</div>
+				#end
+	        </div>
+
+
+			<div class="row MB10 #if(!$!{strategyDetail.strategyReqs} || $!{strategyDetail.strategyReqs.size()}<2) hidden #end" id="addGroupBtn">
+				<div class="col-md-6 col-md-offset-3">
+					<button type="button" class="btn btn-block btn-primary btn-lg js-add-group">
+						<i class="fa fa-plus"></i>
+						增加策略组
+					</button>
+				</div>
+			</div>
+
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-inline">
+						<div class="noborder">
+	  				   		<label for="comment" class="col-sm-1 form-label text-right">备注</label>
+	  				   		<div class="col-sm-10">
+	  					 		<textarea name="comment" rows="5" cols="120" class="form-control" maxlength="100"></textarea>
+	  				   		</div>
+	  				 	</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row MB10 ">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-info btn-lg js-save-btn"><i class="fa fa-save"></i> 提交</button>
+					<button type="button" class="btn btn-default btn-lg js-cancel-btn"><i class="fa fa-mail-reply"></i> 取消</button>
+					<p class="js-error-msg MT10"></p>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/html" id="typeSelect" >
+	<select class="selectpicker planTypes type">
+		<option value="">请选择</option>
+        #foreach($item in $planTypes)
+            <option value="$!item.key">$!item.name</option>
+        #end
+	</select>
+</script>
+
+<script type="text/html" id="tableTemplate">
+	<div class="panel-body ">
+		<div class="form-inline">
+			<div class="form-group noborder js-group-order ui-table-order">
+				<a href="javascript:;" class="js-remove-table">
+					<i class="fa fa-remove"></i>
+				</a>
+				策略 <span class="js-group-number"></span>  组
+			</div>
+			<div class="form-group noborder">
+				<label for="status">状态:</label>
+				<select class="selectpicker" name="status" data-value="$!{item.status}">
+					<option value="">请选择</option>
+					<option value="N">正常</option>
+					<option value="C">失效</option>
+				</select>
+			</div>
+			<div class="form-group noborder">
+				<label for="startDate">有效期:</label>
+				<input name="startDate" class="form-control js-date datetimepicker" placeholder="开始时间" readonly  value="$!{item.startDate}" /> - <input name="endDate" class="form-control js-date datetimepicker" readonly placeholder="截止时间" value="$!{item.endDate}" /> &nbsp;
+				<!-- 彭磊：产品说可以选长期 -->
+				<input type="checkbox" class="js-long-term" name="groupId"> 长期
+			</div>
+			<div class="form-group noborder js-weight-group">
+				<label for="weight">比例:</label>
+				<input name="weight" class="form-control" placeholder="比例"  value="$!{item.weight}" /> %
+			</div>
+		</div>
+		<table class="table data-table table-border">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>计划类型</th>
+					<th>内容</th>
+					<th>T+?</th>
+					<th>时间点</th>
+					<th>状态</th>
+					<th>更新时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+		</table>
+		<div class="row MT10">
+			<div class="col-md-12">
+				<button type="button" class="btn btn-default js-add-table-row"><i class="fa fa-plus"></i> 添加行</button>
+			</div>
+		</div>
+	</div>
+</script>
+
+#parse('/page/pages/coffer/history.vm')
+
+
+#end
+#end
+<script type="text/javascript">
+    var globalData = {
+        'key':'$!{strategy.key}',
+		'strategyReqSize':'$!{strategyDetail.strategyReqs.size()}',
+    };
+</script>
+<script type="text/javascript" src="/static/scripts/pages/coffer/strategy-change.js"></script>

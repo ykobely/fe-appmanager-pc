@@ -1,0 +1,59 @@
+#set($title = "商品列表")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/sale.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+  <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>产品管理</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">商品列表</a>
+		</div>
+	</div>
+
+  <div class="main-cnt">
+    <h1>商品列表</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline pull-left" id="searchForm">
+          <div class="form-group noborder">
+            <label for="title">商品类型:</label>
+            <input type="text" name="goodsName" class="form-control">
+          </div>
+
+          <button type="button" class="btn btn-primary js-search-btn">搜索</button>
+        </form>
+      </div>
+    </div>
+
+		<div class="panel panel-default">
+			<div class="panel-body nopadding">
+				<table id="table" class="table data-table nowrap">
+					<thead>
+						<th>序号</th>
+						<th>商品类型</th>
+						<th>已绑定产品系列</th>
+						<th>操作</th>
+					</thead>
+				</table>
+			</div>
+		</div>
+
+  </div>
+
+</div>
+
+#end
+#end
+
+<script src="/static/scripts/pages/goods/list.js"></script>

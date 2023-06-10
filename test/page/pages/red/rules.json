@@ -1,0 +1,34 @@
+{
+    "msg": "成功",
+    "code": "0000",
+    "data": {
+        "items": [
+            {
+                "isActive": 1,
+                "ruleName": "激励红包",
+                "currentRuleType": 3,
+                "ruleId": "RI003"
+            },
+            {
+                "isActive": 1,
+                "ruleName": "销售额红包",
+                "currentRuleType": 2,
+                "ruleId": "RI004"
+            },
+            {
+                "isActive": 1,
+                "ruleName": "销售额红包",
+                "currentRuleType": 2,
+                "ruleId": "RI002"
+            },
+            {
+                "isActive": 1,
+                "ruleName": "单量规则包",
+                "currentRuleType": 1,
+                "ruleId": "RI001"
+            }
+        ],
+        "total": 4
+    },
+    "succ": true
+}

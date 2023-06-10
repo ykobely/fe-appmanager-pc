@@ -1,0 +1,62 @@
+{
+  "rule":{
+      "ruleName": "12121",
+      "currentRuleType": "3",
+      "dlDetailList": [{
+          "lowLimit": "2121",
+          "upperLimit": "121",
+          "productType": 0,
+          "sendName": "2121",
+          "remark": "212",
+          "redPacketAmount": "212",
+          "contractAmountRate": "",
+          "ruleType": "3",
+          "actName": "活动名"
+      }, {
+          "lowLimit": "2121",
+          "upperLimit": "212",
+          "productType": 1,
+          "sendName": "212",
+          "remark": "21",
+          "redPacketAmount": "21",
+          "contractAmountRate": "",
+          "ruleType": "3",
+          "actName": "活动名"
+      }],
+      "xseDetailList": [{
+          "lowLimit": "",
+          "upperLimit": "",
+          "productType": "1",
+          "sendName": "21",
+          "remark": "21",
+          "redPacketAmount": "",
+          "contractAmountRate": "0.21",
+          "ruleType": "3",
+          "actName": "活动名"
+      }],
+      "jlDetailList": [{
+          "lowLimit": "1",
+          "upperLimit": "1",
+          "productType": 2,
+          "sendName": "1",
+          "remark": "1",
+          "redPacketAmount": "1",
+          "contractAmountRate": "",
+          "ruleType": "3",
+          "actName": "活动名"
+      }, {
+          "lowLimit": "2",
+          "upperLimit": "2",
+          "productType": 1,
+          "sendName": "22",
+          "remark": "2",
+          "redPacketAmount": "2",
+          "contractAmountRate": "",
+          "ruleType": "3",
+          "actName": "活动名"
+      }],
+      "ruleId": "ac1c1c215c43c236015c441c050f016c",
+      "type": "edit",
+      "isActive": 0
+  }
+}

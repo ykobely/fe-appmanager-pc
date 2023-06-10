@@ -1,0 +1,92 @@
+{
+	"code": "0000",
+	"msg": "成功",
+    "pageIndex": 0,
+    "pageSize": 10,
+    "totalSize": 12,
+    "startRow": 0,
+    "endRow": 10,
+	"data": [
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": "C"
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": "N"
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        },
+        {
+            "id": 583,
+            "channel": 11,
+            "skuCode": "平板",
+            "configCode": "",
+            "term": 0,
+            "status": null
+        }
+    ],
+	"succ": true
+}

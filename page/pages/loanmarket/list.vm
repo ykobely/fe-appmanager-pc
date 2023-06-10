@@ -1,0 +1,85 @@
+#set($title = "贷款列表")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+    <link rel="stylesheet" type="text/css" href="/static/styles/pages/loanmarket.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+   <div class="main-header">
+        <div class="breadcrumb">
+            <a href="javascript:;"><i class="fa fa-th-large"></i>贷款列表管理</a>
+            <i class="fa fa-caret-right"></i>
+            <a href="javascript:;">贷款列表</a>
+        </div>
+    </div>
+
+  <div class="main-cnt">
+    <h1>贷款列表</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">       
+            <div class="pull-right">
+                <a href="javascript:;" class="btn btn-primary js-add-btn">新增</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#launched" data-toggle="tab">已上线</a></li>
+                <li><a href="#unLaunch" data-toggle="tab" id="unLaunchTab">未上线</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-panel fade in active" id="launched">
+                    <div class="panel panel-default">
+                        <div class="panel-body nopadding">
+                            <table id="table" class="table data-table nowrap">
+                                <thead>
+                                    <th>名称</th>
+                                    <th>介绍语</th>
+                                    <th>logo</th>
+                                    <th>权重</th>
+                                    <th>跳转链接</th>
+                                    <th>操作</th>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel fade" id="unLaunch">                    
+                    <div class="panel panel-default">
+                        <div class="panel-body nopadding">
+                            <table id="unLaunchTable" class="table data-table nowrap">
+                                <thead>
+                                    <th>名称</th>
+                                    <th>介绍语</th>
+                                    <th>logo</th>
+                                    <th>权重</th>
+                                    <th>跳转链接</th>
+                                    <th>操作</th>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+#parse('/page/pages/loanmarket/push-modal.vm')
+
+#end
+#end
+
+<script src="/static/scripts/pages/loanmarket/list.js"></script>

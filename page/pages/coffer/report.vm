@@ -1,0 +1,204 @@
+#set($title = "数据看板")
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/report.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class='lmask'></div>
+<div class="main-box" data-toggle="" data-target="">
+    <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>小金库</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">$!{title}</a>
+		</div>
+	</div>
+
+    <div class="main-cnt">
+		<h1>
+            $!{title}
+        </h1>
+	    <hr/>
+        <div class="row toolbar">
+            <div class="col-xs-12 ">
+                <form class=" multiple">
+                    <div id="templateWrap">
+						<div class="form-inline">
+							<div class="form-group noborder">
+								<label for="serialNo">策略组:</label>
+								<select class="selectpicker" name="channel" multiple data-max-options="1" title="业务线">
+									#foreach($item in $channels)
+										<option value="$!item.code">$!item.name</option>
+									#end
+								</select>
+							</div>
+							<div class="form-group noborder">
+								<select class="selectpicker" name="key" multiple data-max-options="1" title="标签集">
+									#foreach($item in $strategyKeys)
+										<option value="$!item.key">$!item.name</option>
+									#end
+								</select>
+							</div>
+							<div class="form-group noborder">
+								<select class="selectpicker" name="strategyId" multiple data-max-options="1" title="策略组">
+								</select>
+							</div>
+	                        <div class="form-group noborder right-btns">
+	                            <a href="javascript:;" class="append-btn js-first-btn" data-title1="增加对比组" data-title2="退出对比">增加对比组</a>
+	                        </div>
+	                    </div>
+                    </div>
+                    <div class="form-inline MT10">
+                        <div class="form-group noborder">
+                            <label for="serialNo">批次日期:</label>
+                            <input name="batchStartDate" class="form-control datetimepicker" readonly /> - <input name="batchEndDate" class="form-control datetimepicker" readonly />
+                        </div>
+                    </div>
+					<div class="form-inline MT10">
+                        <div class="form-group noborder">
+                            <label for="serialNo">数据范围:</label>
+                            <input name="startDate" class="form-control datetimepicker" readonly /> - <input name="endDate" class="form-control datetimepicker" readonly />
+                        </div>
+						<div class="form-group noborder">
+                            <button type="button" class="btn btn-primary" id="searchBtn" data-loading-text="<i class='fa fa-spinner fa-spin'></i> 查询中..." >查看</button>
+							<span class="n-error" id="searchError"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+		<div class="panel panel-default">
+        	<div class="panel-body nopadding">
+          		<table id="table1" class="table data-table">
+              		<thead>
+                		<tr>
+		                  	<th>组</th>
+                            <th>
+								<div data-toggle="tooltip" data-key="jhzhl">激活转化率</div>
+							</th>
+  							<th>app渠道</th>
+  							<th>公众号</th>
+  							<th>
+								<div data-toggle="tooltip" data-key="jkbs">借款笔数</div>
+							</th>
+                            <th>
+								<div data-toggle="tooltip" data-key="jkrs">借款人数</div>
+							</th>
+                            <th>
+								<div data-toggle="tooltip" data-key="jkzje">借款总金额</div>
+							</th>
+                            <th>
+								<div data-toggle="tooltip" data-key="pjjkje">平均借款金额</div>
+							</th>
+                            <th>
+								<div data-toggle="tooltip" data-key="pjjkqs">平均借款期数</div>
+							</th>
+                            <th>名单人数</th>
+		                </tr>
+              		</thead>
+            	</table>
+         	</div>
+        </div>
+
+		<div class="panel with-nav-tabs panel-info">
+        	<div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">借款金额</a></li>
+                    <li><a href="#tab2" data-toggle="tab">借款笔数</a></li>
+					<li class="pull-right">
+						<!-- <a href="javascript:;">按小时</a>
+						<a href="javascript:;">按天</a>
+						<a href="javascript:;">按月</a> -->
+					</li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content ">
+                    <div class="tab-pane fade in active" id="tab1">
+						<div id="echart1" style="width:100%;height:400px;" class="charts"></div>
+                    </div>
+                    <div class="tab-pane fade" id="tab2">
+						<div id="echart2" style="width:100%;height:400px;" class="charts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="panel with-nav-tabs panel-info">
+        	<div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tabDetail" data-toggle="tab">明细数据</a></li>
+					<li class="pull-right">
+						<span id="strategyItem"></span>
+						<button class="btn btn-primary js-export-btn" style="display: none;">导出</button>
+					</li>
+                </ul>
+            </div>
+            <div class="panel-body nopadding">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="tabDetail">
+						<table id="tableDetail" class="table data-table" style="border:1px solid #ddd;">
+		              		<thead>
+		                		<tr>
+									<th>取现申请日期</th>
+									<th>借款金额</th>
+									<th>借款期数</th>
+									<th>借款渠道</th>
+									<th>user_id</th>
+									<th>身份证号</th>
+									<th>手机号</th>
+									<th>合同号</th>
+									<th>优惠券</th>
+									<th>vip</th>
+				                  	<th>保险包</th>
+				                </tr>
+		              		</thead>
+		            	</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<script type="text/html" id="dataRowTemplate">
+	<div class="form-inline MT10">
+		<div class="form-group noborder">
+			<label for="serialNo">对比<span class="js-group-order"></span>组:</label>
+			<select class="selectpicker" name="channel" multiple data-max-options="1" title="业务线">
+				#foreach($item in $channels)
+					<option value="$!item.code">$!item.name</option>
+				#end
+			</select>
+		</div>
+		<div class="form-group noborder">
+			<select class="selectpicker" name="key" multiple data-max-options="1" title="标签集">
+				#foreach($item in $strategyKeys)
+					<option value="$!item.key">$!item.name</option>
+				#end
+			</select>
+		</div>
+		<div class="form-group noborder">
+			<select class="selectpicker" name="strategyId" multiple data-max-options="1" title="策略组">
+			</select>
+		</div>
+		<div class="form-group noborder right-btns">
+			<a href="javascript:;" class="btn btn-info temp-btn js-add-row"> <i class="fa fa-plus"></i> </a>
+			<a href="javascript:;" class="btn btn-danger temp-btn js-remove-row"> <i class="fa fa-remove"></i> </a>
+		</div>
+	</div>
+</script>
+
+#end
+#end
+
+<script type="text/javascript" src="/static/scripts/pages/coffer/report.js"></script>

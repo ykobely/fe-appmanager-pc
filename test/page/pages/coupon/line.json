@@ -1,0 +1,35 @@
+{
+  "code": "0000",
+  "msg": "成功",
+  "data": [
+    {
+      "name": "adtRate_discount_percent,按比例免手续费",
+      "termType": "1",
+      "rateType": "percent",
+      "code": "101",
+      "type": "string"
+    },
+    {
+      "name": "adtRate_discount_amt,按金额免手续费",
+      "termType": "2",
+      "rateType": "amt",
+      "code": "103",
+      "type": "string"
+    },
+    {
+      "name": "serRate_discount_percent,所有期数按比例免服务费",
+      "termType": "all",
+      "rateType": "percent",
+      "code": "104",
+      "type": "string"
+    },
+    {
+      "name": "serRate_amt_nper_begin,从首期开始连续N期按金额免服务费",
+      "termType": "part",
+      "rateType": "amt",
+      "code": "102",
+      "type": "string"
+    }
+  ],
+  "succ": true
+}

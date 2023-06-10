@@ -1,0 +1,22 @@
+{
+	"totalCount":99,
+	"data":[{
+		"id":1,
+		"title":"闪屏主题",
+		"image":"/appmanage-pc/static/images/no-img.png",
+		"time":"2016.11.09~2016.11.15",
+		"state":"1"
+	},{
+		"id":2,
+		"title":"闪屏主题",
+		"image":"/appmanage-pc/static/images/logo.png",
+		"time":"2016.11.09~2016.11.15",
+		"state":"2"
+	},{
+		"id":3,
+		"title":"闪屏主题",
+		"image":"",
+		"time":"2016.11.09~2016.11.15",
+		"state":"3"
+	}]
+}

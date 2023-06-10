@@ -1,0 +1,49 @@
+{
+  "code": "0000",
+  "msg": "成功",
+  "data": [
+    {
+      "id": null,
+      "activityId": null,
+      "productGroupId": null,
+      "provinceCode": "440000",
+      "province": "广东省",
+      "cityCode": "610900",
+      "city": "深圳市",
+      "stock": 0,
+      "orderStock": 0,
+      "createTime": null,
+      "updateTime": null,
+      "operator": null
+    },
+    {
+      "id": null,
+      "activityId": null,
+      "productGroupId": null,
+      "provinceCode": "440000",
+      "province": "广东省",
+      "cityCode": "c",
+      "city": "广州市",
+      "stock": 0,
+      "orderStock": 0,
+      "createTime": null,
+      "updateTime": null,
+      "operator": null
+    },
+    {
+      "id": null,
+      "activityId": null,
+      "productGroupId": null,
+      "provinceCode": "110000",
+      "province": "北京市",
+      "cityCode": "d",
+      "city": "北京市",
+      "stock": 0,
+      "orderStock": 0,
+      "createTime": null,
+      "updateTime": null,
+      "operator": null
+    }
+  ],
+  "succ": true
+}

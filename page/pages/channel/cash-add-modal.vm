@@ -1,0 +1,92 @@
+<!-- 新建现金贷业务渠道 -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <form action="" id="addForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="addModalLabel">新建现金贷业务渠道</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">业务线:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="channelCode" class="form-control" style="width: 100%;" maxlength="50" onkeyup="value=value.replace(/[^0-9]/g,'');">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">spuCode:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="spuCode" class="form-control" style="width: 100%;" maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">spuName:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="spuName" class="form-control" style="width: 100%;" maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">营销计划code:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="marketPlanCode" class="form-control" style="width: 100%;" maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">合同类型:</label>
+                                <div class="col-md-8">
+                                    <select class="selectpicker" name="contractType">
+                                        <option value="">请选择</option>
+                                        <option value="0">老核心</option>
+                                        <option value="1">新核心</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">描述:</label>
+                                <div class="col-md-8">
+                                    <textarea name="desc" rows="3" cols="50" maxlength="200" class="form-control" placeholder="最多可输入200字"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">支付商户号:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="payMerchantId" class="form-control" style="width: 100%;" maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 MB10">
+                            <div class="form-inline">
+                                <label class="control-label col-md-4 text-right">secretKey:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="secretKey" class="form-control" style="width: 100%;" maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span id="errorInfo" class="error-info"></span>
+                    <button type="button" class="btn btn-info js-addSubmit-btn">确认添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    

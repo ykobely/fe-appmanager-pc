@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>$!title</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="//s1.yyfq.com/backstage/static/images/favicon.ico" rel="icon" type="image/x-icon" />
+        #block('head_meta')#end
+    </head>
+    <body#block('body_attribute')#end>
+        #block('body')#end
+    </body>
+    <script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+    <script src="/static/scripts/pages/common.js"></script>
+    <script src="/static/scripts/libs/validator/jquery.validator.min.js?local=zh-CN"></script>
+</html>

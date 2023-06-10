@@ -1,0 +1,64 @@
+#set($title = "红包活动列表")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/sale.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+  <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>红包管理</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">红包活动列表</a>
+		</div>
+	</div>
+
+  <div class="main-cnt">
+    <h1>红包活动列表</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline pull-left" id="searchForm">
+          <div class="form-group noborder">
+            <label for="title">红包名称:</label>
+            <input type="text" name="searchKey" class="form-control">
+          </div>
+          <button type="button" class="btn btn-primary js-search-btn">查询</button>
+        </form>
+        <div class="pull-right">
+          <a href="/redPackage/config/add" class="btn btn-primary">新建红包活动</a>
+        </div>
+      </div>
+    </div>
+
+		<div class="panel panel-default">
+			<div class="panel-body nopadding">
+				<table id="table" class="table data-table nowrap">
+					<thead>
+						<th>活动名称</th>
+						<th>红包类别</th>
+						<th>红包状态</th>
+						<th>办单人红包</th>
+						<th>店长红包</th>
+						<th>生效时间</th>
+						<th>操作</th>
+					</thead>
+				</table>
+			</div>
+		</div>
+
+  </div>
+
+</div>
+
+#end
+#end
+
+<script src="/static/scripts/pages/red/index.js"></script>

@@ -1,0 +1,119 @@
+#set($title = "策略组")
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/splash.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" data-toggle="" data-target="">
+	<div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>小金库</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">$!{title}</a>
+		</div>
+	</div>
+
+	<div class="main-cnt">
+		<h1>
+            $!{title}
+            <div class="right-absolute">
+                <div class="form-group noborder">
+                    <label for="bankName">全局开关:</label>
+                    <input type="checkbox" class="switch" checked data-on-color="success" data-off-color="danger" data-on-text="开" data-off-text="关" name="switch" />
+                </div>
+            </div>
+        </h1>
+	    <hr/>
+      	<div class="row toolbar">
+      		<div class="col-xs-12 ">
+                <form class="form-inline pull-left">
+			        <div class="form-group noborder">
+                        <label for="channel">业务线:</label>
+                        <select class="selectpicker" name="channel">
+        					<option value="">全部</option>
+							#foreach($item in $channels)
+							  	<option value="$!item.code">$!item.name</option>
+						  	#end
+                        </select>
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="name">策略名称:</label>
+                        <input name="name" class="form-control" placeholder="可模糊搜索" />
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="bankGroupId">人群标签:</label>
+                        <select class="selectpicker" name="key">
+        					<option value="">全部</option>
+							#foreach($item in $strategyKeys)
+								<option value="$!item.key">$!item.name</option>
+							#end
+                        </select>
+                    </div>
+			        <div class="form-group noborder">
+                        <label for="status">状态:</label>
+                        <select class="selectpicker" name="status">
+        					<option value="">全部</option>
+							<option value="N">正常</option>
+        					<option value="C">失效</option>
+                        </select>
+                    </div>
+					<!-- <div class="form-group noborder">
+						<label for="serialNo">有效期:</label>
+						<input name="beginCreateDate" class="form-control datetimepicker" placeholder="开始时间" readonly /> - <input name="endCreateDate" class="form-control datetimepicker" readonly placeholder="截止时间" />
+					</div> -->
+			        <div class="form-group noborder">
+                        <label for="groupId">组别:</label>
+                        <select class="selectpicker" name="groupId">
+        					<option value="">全部</option>
+							#foreach($item in $groups)
+								<option value="$!item.id">$!item.name</option>
+							#end
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary js-search">查询</button>
+					<a href="/market/strategy/addIndex" class="btn btn-info">新建</a>
+                </form>
+      			<div class="pull-right">
+
+      			</div>
+      		</div>
+      	</div>
+
+	    <div class="panel panel-default">
+        	<div class="panel-body nopadding">
+          		<table id="table" class="table data-table">
+              		<thead>
+                		<tr>
+		                  	<th>id</th>
+							<th>业务线</th>
+  							<th>策略名称</th>
+							<th>人群标签集</th>
+  							<th>组别</th>
+  							<th>优先级</th>
+                            <th>状态</th>
+                            <th>有效期</th>
+                            <th>更新时间</th>
+  							<th>操作</th>
+		                </tr>
+              		</thead>
+            	</table>
+         	</div>
+        </div>
+
+	</div>
+</div>
+
+
+#end
+#end
+<script type="text/javascript">
+	var globalData = {
+		'switch':'$!{switch}'
+	};
+</script>
+
+<script type="text/javascript" src="/static/scripts/pages/coffer/strategy.js"></script>

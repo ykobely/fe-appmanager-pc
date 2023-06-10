@@ -1,0 +1,357 @@
+<!-- 红包详情 -->
+#set($title = "新增红包")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/sale.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+  <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>红包管理</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a id="parentUrl" href="/redPackage/config/list">红包活动列表</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;"><span class="js-title">新增</span>红包</a>
+		</div>
+	</div>
+
+  <div class="main-cnt ui-sale">
+    <h1><span class="js-title">新增</span>红包</h1>
+    <hr>
+
+	  <div class=" container-group">
+      <div class="row row-wrap">
+        <div class="col-md-6">
+					<form id="redForm" >
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-plus"></i>
+		            </span>
+		            <h3 class="panel-title">红包信息</h3>
+		          </div>
+		    			<div class="panel-body">
+		    				<div class="form-inline">
+		              <div class="form-group noborder">
+		                <label for="configName">红包名称:</label>
+		                <input type="text" name="configName" class="form-control" placeholder="请输入中文，不超过20字" maxlength="20" value="$!redPacketConfig.configName">
+		              </div>
+		    				</div>
+		    				<div class="form-inline">
+		              <div class="form-group noborder">
+		                <label>生效时间:</label>
+		                <input name="startTime" class="form-control datatimepicker js-startTime" placeholder="开始时间" value="$!redPacketConfig.startTime" readonly/>
+		                至
+		                <input name="endTime" class="form-control datatimepicker js-endTime" placeholder="结束时间" readonly/>
+		              </div>
+		    				</div>
+								<p class="n-msg js-time-error hidden">
+									<label>&#12288;&#12288;&#12288;&#12288;&#160;</label>
+									<i class="fa fa-remove"></i>
+									<span class="n-error"></span>
+								</p>
+		    			</div>
+		    		</div>
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-cubes"></i>
+		            </span>
+		            <h3 class="panel-title">选择红包类型</h3>
+		          </div>
+		    			<div class="panel-body">
+		    				<div class="form-inline">
+		              <div class="radio">
+		                <label for="">
+		                  <input type="radio" name="configType" value="3" class="js-raido-select"> 城市红包
+		                </label>
+		              </div>
+                  <div class="radio ML10">
+		                <label for="">
+		                  <input type="radio" name="configType" value="1" class="js-raido-select"> 门店红包
+		                </label>
+		              </div>
+		    				</div>
+		    			</div>
+		    		</div>
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-tachometer"></i>
+		            </span>
+		            <h3 class="panel-title">规则包配置</h3>
+		          </div>
+		    			<div class="panel-body">
+                <div class="js-rule-select-wrap " data-name="redPacketSelfRuleList">
+									<div class="form-inline">
+										<div class="form-group noborder">
+											 <label>办单人红包:</label>
+											 <select class="selectpicker js-rule-select" name="redPacketSelfRuleList" data-live-search="true">
+												 <option value="">请选择红包规则</option>
+											 </select>
+											 <button type="button" name="button" class="btn btn-info js-plus-btn"><i class="fa fa-plus"></i></button>
+										</div>
+									</div>
+                </div>
+								<p class="n-msg js-redPacketSelfRuleList-error hidden">
+									<label>&#12288;&#12288;&#12288;&#12288;&#12288;&#160;</label>
+									<i class="fa fa-remove"></i>
+									<span class="n-error" data-role="办单人红包"></span>
+								</p>
+
+                <div class="js-rule-select-wrap" data-name="redPacketDzRuleList">
+									<div class="form-inline">
+										<div class="form-group noborder">
+											 <label>店长红包:&#12288;</label>
+											 <select class="selectpicker js-rule-select" name="redPacketDzRuleList" data-live-search="true">
+												 <option value="">请选择红包规则</option>
+											 </select>
+											 <button type="button" name="button" class="btn btn-info js-plus-btn"><i class="fa fa-plus"></i></button>
+										</div>
+									</div>
+                </div>
+								<p class="n-msg js-redPacketDzRuleList-error hidden">
+									<label>&#12288;&#12288;&#12288;&#12288;&#12288;&#160;</label>
+									<i class="fa fa-remove"></i>
+									<span class="n-error" data-role="店长红包"></span>
+								</p>
+		    			</div>
+		    		</div>
+						<div class="panel panel-default js-config-wrap hidden">
+		          <div class="panel-heading">
+		            <span class="icon">
+		              <i class="fa fa-wrench"></i>
+		            </span>
+		            <h3 class="panel-title">配置列表</h3>
+		          </div>
+		    			<div class="panel-body">
+								<div class="js-city-red row hidden">
+									<div class="form-inline">
+		                <div class="form-group noborder">
+		                  <label for="title">省:</label>
+		                  <select class="selectpicker js-province" data-live-search="true">
+													<option value="">请选择省份</option>
+													<option value="110000">北京市</option>
+													<option value="120000">天津市</option>
+													<option value="130000">河北省</option>
+													<option value="140000">山西省</option>
+													<option value="150000">内蒙古自治区</option>
+													<option value="210000">辽宁省</option>
+													<option value="220000">吉林省</option>
+													<option value="230000">黑龙江省</option>
+													<option value="310000">上海市</option>
+													<option value="320000">江苏省</option>
+													<option value="330000">浙江省</option>
+													<option value="340000">安徽省</option>
+													<option value="350000">福建省</option>
+													<option value="360000">江西省</option>
+													<option value="370000">山东省</option>
+													<option value="410000">河南省</option>
+													<option value="420000">湖北省</option>
+													<option value="430000">湖南省</option>
+													<option value="440000">广东省</option>
+													<option value="450000">广西壮族自治区</option>
+													<option value="460000">海南省</option>
+													<option value="500000">重庆市</option>
+													<option value="510000">四川省</option>
+													<option value="520000">贵州省</option>
+													<option value="530000">云南省</option>
+													<option value="540000">西藏自治区</option>
+													<option value="610000">陕西省</option>
+													<option value="620000">甘肃省</option>
+													<option value="630000">青海省</option>
+													<option value="650000">新疆维吾尔自治区</option>
+													<option value="710000">台湾省</option>
+													<option value="810000">香港特别行政区</option>
+													<option value="820000">澳门特别行政区</option>
+		                      <option value="990000">线上</option>
+		                  </select>
+		                  <!-- <button type="button" class="btn btn-primary js-search-btn" data-loading-text="<i class='fa fa-spinner fa-spin'></i> 查询中...">查询</button> -->
+		                </div>
+		              </div>
+		              <div class="borderTop">
+		                <table id="cityTable" class="table data-table">
+		        					<thead>
+		        						<th><input type="checkbox" value="1" id="table-select-all"></th>
+		        						<th>省</th>
+		        						<th>城市</th>
+		        					</thead>
+		        				</table>
+		              </div>
+								</div>
+								<div class="js-shop-red hidden">
+									<div class="form-inline">
+										<textarea class="form-control" name="configCode" rows="5" placeholder="" style="resize:none;width:100%;" maxlength="800" placeholder="最多可输入1000字"></textarea>
+										<p>每个关键词之间请用中文逗号，隔开</p>
+									</div>
+								</div>
+		    			</div>
+		    		</div>
+
+						<div class="footer text-center">
+							<p class="js-error-msg"></p>
+							<button type="button" name="button" class="btn btn-default js-reset-btn"><i class="fa fa-refresh"></i> 重置</button>
+							<button type="submit" name="button" class="btn btn-info js-submit-btn"><i class="fa fa-save"></i> 保存</button>
+						</div>
+						<input type="text" name="cityCodes" class="hidden"><!-- 表单验证是需要一个name，不能删 -->
+					</form>
+   	   </div>
+
+        <div class="col-md-6 ui-right">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span class="icon">
+                <i class="fa fa-map-o"></i>
+              </span>
+              <h3 class="panel-title">已配置列表</h3>
+            </div>
+      			<div class="panel-body">
+              <div class="row">
+                <dl class="">
+                  <dt>红包名称:</dt>
+                  <dd for="configName">$!redPacketConfig.configName</dd>
+                  <dt>生效时间:</dt>
+                  <dd>
+                  	<span for="startTime"></span> - <span for="endTime"></span>
+                  </dd>
+                  <dt>红包类别:</dt>
+                  <dd for="configType"></dd>
+                </dl>
+              </div>
+
+							<div class="tab-base row">
+								<ul class="nav nav-tabs">
+									<li class="active">
+										<a data-toggle="tab" href="#0">红包配置</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="#0" class="tab-pane active">
+										<div class=" ">
+											<table id="ruleTable" class="table data-table table-bordered">
+												<thead>
+													<tr>
+														<th>类别</th>
+														<th>规则包</th>
+													</tr>
+												</thead>
+												<tbody>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="wrap">
+								<div class="tab-base row js-city-red hidden">
+									<ul class="nav nav-tabs">
+										<li class="active">
+											<a data-toggle="tab" href="#1">参与城市</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="#1" class="tab-pane active">
+											<div class=" ">
+				                <table id="citySelectedTable" class="table data-table border">
+				        					<thead>
+				        						<tr>
+															<th>序号</th>
+															<th>省</th>
+					        						<th>城市</th>
+				        						</tr>
+				        					</thead>
+				        				</table>
+				              </div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-base row js-shop-red hidden">
+									<ul class="nav nav-tabs">
+										<li class="active">
+											<a data-toggle="tab" href="#2">参与门店</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="#2" class="tab-pane active js-configCode">
+
+										</div>
+									</div>
+								</div>
+              </div>
+
+      			</div>
+      		</div>
+        </div>
+  	  </div>
+	  </div>
+
+  </div>
+
+</div>
+
+
+<!-- 规则包列表 -->
+<div class="hidden js-rule-options">
+
+</div>
+
+<script type="text/html" id="redRule">
+	<div class="form-inline">
+		<div class="form-group noborder">
+			 <label>&#12288;&#12288;&#12288;&#12288;&#12288;&#160;</label>
+			 <select class="selectpicker js-rule-select" name="" data-live-search="true">
+				 <option value="">请选择红包规则</option>
+			 </select>
+			 <button type="button" name="button" class="btn btn-info js-plus-btn"><i class="fa fa-plus"></i></button>
+ 			<button type="button" name="button" class="btn btn-warning js-minus-btn"><i class="fa fa-minus"></i></button>
+		</div>
+	</div>
+</script>
+
+#end
+#end
+
+
+<script type="text/javascript">
+	// 办单人红包选中项
+	var redPacketSelfRuleList = [
+		#foreach($item in $!redPacketConfig.redPacketSelfRuleList)
+			#if($foreach.index >  0),#end
+			{ruleId:'$!item.ruleId',ruleName:'$!item.ruleName',currentRuleType:'$!item.currentRuleType'}
+		#end
+	];
+	// 店长红包选中项
+	var redPacketDzRuleList = [
+		#foreach($item in $!redPacketConfig.redPacketDzRuleList)
+			#if($foreach.index >  0),#end
+			{ruleId:'$!item.ruleId',ruleName:'$!item.ruleName',currentRuleType:'$!item.currentRuleType'}
+		#end
+	];
+	// 城市、门店规则code
+	var configCodeList = [
+		#foreach($item in $!redPacketConfig.configCodeList)
+			#if($foreach.index >  0),#end
+			'$!item'
+		#end
+	];
+
+	var _globalData = {
+		startTime:'$!redPacketConfig.startTime',
+		endTime:'$!redPacketConfig.endTime',
+		configType:'$!redPacketConfig.configType',//1门店，其与都是城市
+		redPacketDzRuleList:redPacketDzRuleList,//已选择的店长红包规则包
+		redPacketSelfRuleList:redPacketSelfRuleList,//已选择的办单人红包规则包
+		configCodeList:configCodeList//城市、门店规则code
+	};
+</script>
+<script src="/static/scripts/pages/red/index-detail.js"></script>

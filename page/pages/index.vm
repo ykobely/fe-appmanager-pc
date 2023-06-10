@@ -1,0 +1,32 @@
+#set($title = "有用分期运营后台")
+#extends("../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/welcome.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" data-toggle="" data-target="">
+	<div class="main-header">
+		<div class="breadcrumb">
+  			<a href="#"><i class="fa fa-th-large"></i>主页</a>
+		</div>
+	</div>
+
+	<div class="ui-main-cnt">
+
+	</div>
+</div>
+
+#end
+#end
+
+
+<script text="text/javascript">
+	$(function(){
+		var h = $(window).height()-77;
+		$('.ui-main-cnt').css('min-height',h + 'px');
+	});
+</script>

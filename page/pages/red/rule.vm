@@ -1,0 +1,60 @@
+#set($title = "红包规则包列表")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/sale.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+  <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>红包管理</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">红包规则包列表</a>
+		</div>
+	</div>
+
+  <div class="main-cnt">
+    <h1>红包规则包列表</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline pull-left" id="searchForm">
+          <div class="form-group noborder">
+            <label for="title">规则包名称:</label>
+            <input type="text" name="ruleName" class="form-control">
+          </div>
+          <button type="button" class="btn btn-primary js-search-btn">查询</button>
+        </form>
+        <div class="pull-right">
+          <a href="/redPackage/rule/add" class="btn btn-primary">新建规则包</a>
+        </div>
+      </div>
+    </div>
+
+		<div class="panel panel-default">
+			<div class="panel-body nopadding">
+				<table id="table" class="table data-table nowrap">
+					<thead>
+						<th>规则包名称</th>
+						<th>红包类型</th>
+						<th>操作</th>
+					</thead>
+				</table>
+			</div>
+		</div>
+
+  </div>
+
+</div>
+
+#end
+#end
+
+<script src="/static/scripts/pages/red/rule.js"></script>

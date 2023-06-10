@@ -1,0 +1,197 @@
+#set($title = "资金配置")
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/sale.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" data-toggle="" data-target="">
+	<div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>资金管理</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">资金配置</a>
+		</div>
+	</div>
+
+	<div class="main-cnt">
+		<h1>资金配置</h1>
+	    <hr/>
+      	<div class="row toolbar">
+      		<div class="col-xs-12 ">
+                <form id="searchForm" class="form-inline pull-left">
+                    <div class="form-group noborder">
+                        <label for="startDate">日期:</label>
+                        <input name="startDate" class="form-control datatimepicker" placeholder="开始日期" readonly/>
+                        -
+                        <input name="endDate" class="form-control datatimepicker" placeholder="结束日期" readonly/>
+                    </div>
+			        <div class="form-group noborder">
+                        <label for="configCode">资金计划code:</label>
+                        <select class="selectpicker" name="configCode">
+        					<option value="">请选择</option>
+                            #foreach($item in $configCodes)
+                                <option value="$!item">$!item</option>
+                            #end
+                        </select>
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="status">状态:</label>
+                        <select class="selectpicker" name="status">
+        					<option value="">请选择</option>
+        					<option value="N">正常</option>
+        					<option value="C">失效</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary js-search">查询</button>
+					<a href="/capital/configration/addPage" class="btn btn-info">新建</a>
+                </form>
+      			<div class="pull-right">
+
+      			</div>
+      		</div>
+      	</div>
+
+	    <div class="panel panel-default">
+        	<div class="panel-body nopadding">
+          		<table id="table" class="table data-table">
+              		<thead>
+                		<tr>
+		                  	<th>日期</th>
+  							<th>资金计划code</th>
+  							<th>金额</th>
+  							<th>银行限制</th>
+                            <th>状态</th>
+  							<th>操作</th>
+		                </tr>
+              		</thead>
+            	</table>
+         	</div>
+        </div>
+
+	</div>
+</div>
+
+
+
+<!-- Modal弹窗：新增 -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"  aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  	<div class="modal-dialog modal-lg" role="document" style="margin-left:200px">
+   	 	<div class="modal-content">
+      		<form id="addModalForm" >
+      			<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			        <h4 class="modal-title" id="addModalLabel">新增资金计划</h4>
+			    </div>
+		      	<div class="modal-body">
+                    <div class="rows">
+                        <button type="button" class="btn btn-info js-modal-addRow">新增</button>
+                    </div>
+                    <table id="addTable" class="table data-table">
+                  		<thead>
+                    		<tr>
+    		                  	<th>日期</th>
+      							<th>资金计划code</th>
+      							<th>金额</th>
+                                <th>银行限制</th>
+      							<th>状态</th>
+      							<th>操作</th>
+    		                </tr>
+                  		</thead>
+                	</table>
+		      	</div>
+	      		<div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+			        <button type="submit" class="btn btn-primary js-modal-addBtn">执行</button>
+			    </div>
+      		</form>
+    	</div>
+  	</div>
+</div>
+
+
+<!-- Modal弹窗：编辑 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"  aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  	<div class="modal-dialog modal-lg" role="document" style="margin-left:200px">
+   	 	<div class="modal-content">
+      		<form id="editModalForm" >
+                <input type="hidden" name="id" >
+      			<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			        <h4 class="modal-title" id="editModalLabel">编辑资金计划</h4>
+			    </div>
+		      	<div class="modal-body">
+                    <table class="table data-table">
+                  		<thead>
+                    		<tr>
+    		                  	<th>日期</th>
+      							<th>资金计划code</th>
+      							<th>金额</th>
+      							<th>银行限制</th>
+      							<th>状态</th>
+    		                </tr>
+                  		</thead>
+                        <tbody>
+                            <tr>
+                                <td class="js-configDate"></td>
+                                <td class="js-configCode"></td>
+                                <td>
+                                    <input type="text" name="totalAmount" class="form-control">
+                                </td>
+                                <td>
+                                    <select class="selectpicker" name="bankGroupId">
+                    					<option value="">无限制</option>
+                                        #foreach($item in $bankGroupIds)
+                                            <option value="$!item">$!item</option>
+                                        #end
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="selectpicker" name="status">
+                    					<option value="">请选择</option>
+                    					<option value="N">有效</option>
+                    					<option value="C">失效</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                	</table>
+		      	</div>
+	      		<div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+			        <button type="submit" class="btn btn-primary js-update-btn">确定</button>
+			    </div>
+      		</form>
+    	</div>
+  	</div>
+</div>
+
+#end
+#end
+
+<script type="text/html" id="bankGroupIdSelect">
+    <select class="selectpicker" name="bankGroupId">
+        <option value="NONE">无限制</option>
+        #foreach($item in $bankGroupIds)
+            <option value="$!item">$!item</option>
+        #end
+    </select>
+</script>
+
+<script type="text/html" id="configCodeOption">
+    <select class="selectpicker" name="configCode">
+        <option value="">请选择</option>
+        #foreach($item in $configCodes)
+            <option value="$!item">$!item</option>
+        #end
+    </select>
+</script>
+
+<script type="text/javascript" src="/static/scripts/pages/fund/index.js"></script>

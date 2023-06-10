@@ -1,0 +1,61 @@
+#set($title = "app首页弹窗推送")
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/splash.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" data-toggle="" data-target="">
+	<div class="main-header">
+		<div class="breadcrumb">
+  			<a href="#"><i class="fa fa-th-large"></i>app配置后台</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">app首页弹窗推送</a>
+		</div>
+	</div>
+
+	<div class="main-cnt">
+		<h1>app首页弹窗推送</h1>
+	    <hr/>
+      	<div class="row toolbar">
+      		<div class="col-xs-12 ">
+            <form class="form-inline pull-left">
+              <div class="form-group noborder">
+                <label for="title">弹窗标题:</label>
+                <input type="text" name="title" class="form-control">
+              </div>
+              <button type="button" class="btn btn-primary js-search">查询</button>
+            </form>
+      			<div class="pull-right">
+      				<a href="/page/pages/push/add.vm" class="btn btn-primary">新建弹窗</a>
+      			</div>
+      		</div>
+      	</div>
+
+	    <div class="panel panel-default">
+        	<div class="panel-body nopadding">
+          		<table class="table data-table">
+              		<thead>
+                		<tr>
+		                  	<th>序号</th>
+  							<th>弹窗标题</th>
+  							<th>弹窗内容</th>
+  							<th>状态</th>
+                            <th>添加时间</th>
+  							<th>操作</th>
+		                </tr>
+              		</thead>
+            	</table>
+         	</div>
+        </div>
+
+	</div>
+</div>
+
+#end
+#end
+
+<script type="text/javascript" src="/static/scripts/pages/push/index.js"></script>

@@ -1,0 +1,110 @@
+#set($title = "文章推送列表")
+
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/article.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+
+<div class="main-box">
+   <div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>公众号</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">文章定向推送</a>
+		</div>
+	</div>
+
+  <div class="main-cnt">
+    <h1>文章定向推送</h1>
+	<hr>
+	
+	<div class="row toolbar">
+		<div class="col-xs-12 ">
+	  		<form class="form-inline pull-left">
+				<div class="form-group noborder">
+					<label for="name">公众号:</label>
+					<select class="selectpicker" name="wechatChannelConfigId"></select>
+				</div>
+				<button type="button" class="btn btn-primary js-search-btn">查询</button>
+			</form>
+			<div class="pull-right">
+				<button type="button" class="btn btn-info js-add-btn">新建公众号</button>
+			</div>
+		</div>
+	</div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#article" data-toggle="tab">文章列表</a></li>
+                <li><a href="#history" data-toggle="tab" id="historyTab">历史推送</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-panel fade in active" id="article">
+                    <div class="row">
+                      <div class="col-md-12 MB10">
+                          <button type="button" class="btn btn-info js-search-btn">刷新列表</button>
+                          <a href="javascript:;" class="btn btn-primary js-push-btn">立即推送</a>
+                      </div>
+                    </div>
+
+            		<div class="panel panel-default">
+            			<div class="panel-body nopadding">
+            				<table id="table" class="table data-table nowrap">
+            					<thead>
+									<th></th>
+            						<th>media_id</th>
+            						<th>文章名</th>
+            						<th>作者</th>
+            						<th>最近一次编辑时间</th>
+            						<th>创建时间</th>
+            					</thead>
+            				</table>
+            			</div>
+            		</div>
+                </div>
+                <div class="tab-panel fade" id="history">
+					<div class="row">
+                      <div class="col-md-12 MB10">
+                          <button type="button" class="btn btn-info js-searchHistory-btn">刷新列表</button>
+                      </div>
+                    </div>
+					<div class="panel panel-default">
+            			<div class="panel-body nopadding">
+            				<table id="historyTable" class="table data-table nowrap">
+            					<thead>
+									<th>id</th>
+            						<th>推送日期</th>
+            						<th>文章名</th>
+									<th>作者</th>
+            						<th>media_id</th>
+            						<th>推送结果</th>
+            						<th>备注</th>
+            					</thead>
+            				</table>
+            			</div>
+            		</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+#parse('/page/pages/article/push-modal.vm')
+#parse('/page/pages/article/add-modal.vm')
+
+#end
+#end
+
+<script src="/static/scripts/pages/article/index.js"></script>

@@ -1,0 +1,71 @@
+#set($title = '新增弹窗')
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/splash.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" >
+	<div class="main-header">
+	    <div class="breadcrumb">
+		    <a href="#"><i class="fa fa-th-large"></i>app配置后台</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a id="parentUrl" href="/page/pages/push/index.vm">app首页弹窗推送</a>
+		    <i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">新增</a>
+	    </div>
+	</div>
+	<div class="main-cnt">
+		<h1>新增</h1>
+	    <hr/>
+
+		<div class="panel">
+			<div class="panel-body">
+				<form id="pushAddForm" class="form-horizontal" action="" method="post" autocomplete="off">
+					<div class="form-group">
+						<label for="title" class="control-label col-xs-2">弹窗标题：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="title" class="form-control w250" />
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="title"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="content" class="control-label col-xs-2">弹窗内容：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="content" class="form-control w250" />
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="content"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="url" class="control-label col-xs-2">弹窗链接：</label>
+						<div class=" col-xs-5">
+							<input type="text" name="url" class="form-control w250" />
+						</div>
+						<div class="col-xs-3">
+							<span class="msg-box n-right" for="url"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<button type="button" class="btn btn-primary js-save">保存</button>
+						<button type="button" class="btn btn-default js-cancle">取消</button>
+						<button type="button" class="btn btn-primary js-save-public">保存并发布</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+    </div>
+</div>
+
+
+#end
+#end
+
+<script type="text/javascript" src="/static/scripts/pages/push/add.js"></script>

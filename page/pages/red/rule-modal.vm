@@ -1,0 +1,101 @@
+<!-- 新增、编辑规则 -->
+<div class="modal fade" id="ruleModal" tabindex="-1" role="dialog" aria-labelledby="ruleModalLabel"  aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  	<div class="modal-dialog" role="document">
+   	 	<div class="modal-content">
+      		<form id="ruleModalForm" >
+            <input type="hidden" name="id">
+            <input type="hidden" name="tableId">
+      			<input type="hidden" name="checked">
+      			<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			        <h4 class="modal-title" id="ruleModalLabel">规则配置</h4>
+			    </div>
+		      	<div class="modal-body">
+			        <div class="panel-body">
+                <div class="row MB10 js-type hidden" data-type="1">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1 js-belong-group">
+      								<label class="control-label" for="lowLimit">起始单量：</label>
+      								<input name="lowLimit" class="form-control js-int"  >
+      							</div>
+      						</div>
+      					</div>
+      					<div class="row MB10 js-type hidden" data-type="1">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1">
+      								<label class="control-label" for="upperLimit">截止单量：</label>
+      								<input type="text" name="upperLimit" class="form-control js-int" >
+      							</div>
+      						</div>
+      					</div>
+                <div class="row MB10 js-type hidden" data-type="2">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1">
+      								<label class="control-label" for="productType">产品类型：</label>
+                      <select name="productType" class="selectpicker" >
+	                    	<option value="1">促销</option>
+	                    	<option value="0">普通</option>
+			                </select>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="row MB10">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1">
+      								<label class="control-label" for="actName">红包名：&#12288;</label>
+      								<input type="text" name="actName" class="form-control" maxlength="32">
+      							</div>
+      						</div>
+      					</div>
+      					<div class="row MB10">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1">
+      								<label class="control-label" for="sendName">发送人：&#12288;</label>
+      								<input type="text" name="sendName" class="form-control" value="">
+      							</div>
+      						</div>
+      					</div>
+      					<div class="row MB10">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1">
+      								<label class="control-label" for="wishing">祝福语：&#12288;</label>
+      								<input type="text" name="wishing" class="form-control" value="">
+      							</div>
+      						</div>
+      					</div>
+      					<div class="row MB10">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1">
+      								<label class="control-label" for="remark">红包描述：</label>
+      								<textarea class="form-control" name="remark" cols="35" rows="3" maxlength="64"></textarea>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="row MB10 js-type hidden" data-type="1">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1 js-belong-status">
+      								<label class="control-label" for="redPacketAmount">金额：&#12288;&#12288;</label>
+      								<input type="text" name="redPacketAmount" class="form-control js-number"> ￥
+      							</div>
+      						</div>
+      					</div>
+                <div class="row MB10 js-type hidden" data-type="2">
+      						<div class="form-inline">
+      							<div class="col-md-11 col-sm-offset-1 js-belong-status">
+      								<label class="control-label" for="contractAmountRate">红包比例：</label>
+      								<input type="text" name="contractAmountRate" class="form-control js-number " data-fix="3"> %
+      							</div>
+      						</div>
+      					</div>
+			        </div>
+		      	</div>
+	      		<div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+			        <button type="submit" class="btn btn-primary">确定</button>
+			    </div>
+      		</form>
+    	</div>
+  	</div>
+</div>

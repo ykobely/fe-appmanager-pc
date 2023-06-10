@@ -1,0 +1,119 @@
+#set($title = "小金库名单")
+#extends("../../layout/main.vm")
+
+#block('head_meta')
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/splash.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+#parse("../pages/common/_menu.vm")
+<div class="main-box" data-toggle="" data-target="">
+	<div class="main-header">
+		<div class="breadcrumb">
+  			<a href="javascript:;"><i class="fa fa-th-large"></i>小金库</a>
+  			<i class="fa fa-caret-right"></i>
+		    <a href="javascript:;">$!{title}</a>
+		</div>
+	</div>
+
+	<div class="main-cnt">
+		<h1>
+            $!{title}
+        </h1>
+	    <hr/>
+      	<div class="row toolbar">
+      		<div class="col-xs-12 ">
+                <form class="form-inline multiple pull-left">
+                    <div class="form-group noborder">
+                        <label for="serialNo">流水号:</label>
+                        <input name="serialNo" class="form-control" />
+                    </div>
+			        <div class="form-group noborder">
+                        <label for="bankGroupId">业务线:</label>
+                        <select class="selectpicker" name="channel">
+        					<option value="">请选择</option>
+        					<option value="301">3C交叉现金贷</option>
+        					<option value="501">车交叉现金贷</option>
+        					<option value="701">3C竞对</option>
+        					<option value="702">泛人群</option>
+                        </select>
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="userId">用户id:</label>
+                        <input name="userId" class="form-control" />
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="mobile">手机号:</label>
+                        <input name="mobile" class="form-control" />
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="realName">用户姓名:</label>
+                        <input name="realName" class="form-control" />
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="idcardNo">身份证号码:</label>
+                        <input name="idcardNo" class="form-control" />
+                    </div>
+			        <div class="form-group noborder">
+                        <label for="status">状态:</label>
+                        <select class="selectpicker" name="status">
+        					<option value="">请选择</option>
+							<option value="I">网销中</option>
+							<option value="M">电销中</option>
+							<option value="E">已取现</option>
+        					<option value="C">已作废</option>
+                        </select>
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="beginCreateDate">创建时间:</label>
+                        <input name="beginCreateDate" class="form-control datetimepicker" readonly />-<input name="endCreateDate" class="form-control datetimepicker" readonly />
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="beginChangeDate">变更日:</label>
+                        <input name="beginChangeDate" class="form-control datetimepicker" readonly />-<input name="endChangeDate" class="form-control datetimepicker" readonly />
+                    </div>
+                    <div class="form-group noborder">
+                        <label for="beginUpdateDate">更新时间:</label>
+                        <input name="beginUpdateDate" class="form-control datetimepicker" readonly />-<input name="endUpdateDate" class="form-control datetimepicker" readonly />
+                    </div>
+					<button type="button" class="btn btn-primary js-search-btn">查询</button>
+                    <button type="button" class="btn btn-default js-reset-btn">重置</button>
+                    <!-- <button type="button" class="btn btn-info js-export-btn">导出</button> -->
+                </form>
+      			<div class="pull-right">
+
+      			</div>
+      		</div>
+      	</div>
+
+	    <div class="panel panel-default">
+        	<div class="panel-body nopadding">
+          		<table id="table" class="table data-table">
+              		<thead>
+                		<tr>
+		                  	<th>id</th>
+                            <th>批次流水号</th>
+  							<th>业务线</th>
+  							<th>用户id</th>
+  							<th>手机号</th>
+                            <th>用户姓名</th>
+                            <th>身份证号码</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th>变更日</th>
+                            <th>更新时间</th>
+		                </tr>
+              		</thead>
+            	</table>
+         	</div>
+        </div>
+
+	</div>
+</div>
+
+
+#end
+#end
+
+<script type="text/javascript" src="/static/scripts/pages/coffer/namelist.js"></script>
